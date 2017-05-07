@@ -1,0 +1,73 @@
+apply plugin: "com.android.application"
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.zin.unicorn"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions {
+            enabled true
+        }
+
+        buildConfigField "String", "GITHUB_CLIENT_ID", properties.getProperty("GITHUB_CLIENT_ID")
+        buildConfigField "String", "GITHUB_SECRET", properties.getProperty("GITHUB_SECRET")
+        buildConfigField "String", "GITHUB_CALLBACK_URL", properties.getProperty("GITHUB_CALLBACK_URL")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    android {
+        useLibrary "org.apache.http.legacy"
+    }
+}
+
+ext {
+    supportLibVersion = "25.3.1"
+    rxVersion = "2.0.1"
+    rxPreferencesVersion = "2.0.0-RC1"
+    retrofit2Version = "2.2.0"
+    gsonVersion = "2.8.0"
+    eventBusVersion = "3.0.0"
+    butterknifeVersion = "8.5.1"
+    junitVersion = "4.12"
+}
+
+dependencies {
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    testCompile "junit:junit:${junitVersion}"
+    testCompile 'com.squareup.okhttp3:mockwebserver:3.6.0'
+
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+    compile "io.reactivex.rxjava2:rxjava:${rxVersion}"
+    compile "io.reactivex.rxjava2:rxandroid:${rxVersion}"
+//    compile "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
+    compile "com.squareup.retrofit2:retrofit:${retrofit2Version}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
+
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:${rxVersion}"
+    compile "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
+    compile "com.google.code.gson:gson:${gsonVersion}"
+    compile "org.greenrobot:eventbus:${eventBusVersion}"
+    compile "com.jakewharton:butterknife:${butterknifeVersion}"
+    compile "com.github.bumptech.glide:glide:3.7.0"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+}
