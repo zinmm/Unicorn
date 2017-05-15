@@ -2,7 +2,6 @@ package com.zin.unicorn.util;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -31,7 +30,7 @@ public class RetrofitUtils {
             mRetrofit = new Retrofit.Builder()
                     .baseUrl(API_SERVER + "/")
                     .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(mOkHttpClient)
                     .build();
 

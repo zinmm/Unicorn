@@ -28,46 +28,4 @@ public class UserUtil {
         }
         return sUserUtils;
     }
-
-    /**
-     * user is login
-     *
-     * @return true: is login, false: no login
-     */
-    public boolean getUserLoginStatus() {
-        return !TextUtils.isEmpty(AccessTokenUtils.getAccessToken());
-    }
-
-    public boolean isUserLogin() {
-        return getUserInfo() != null;
-    }
-
-    @CheckResult
-    public UserPojo getUserInfo() {
-        if (mUser == null) {
-            String userInfo = SharePreferencesUtils.getInstance().getString(Constants.User.USER_INFO).get();
-            if (!TextUtils.isEmpty(userInfo)) {
-                mUser = GsonUtils.getGsonInstance().fromJson(userInfo, UserPojo.class);
-            }
-        }
-        return mUser;
-    }
-
-    public synchronized void saveUserInfo(UserPojo user) {
-        SharePreferencesUtils.getInstance().getString(Constants.User.USER_INFO).set(GsonUtils.getGsonInstance().toJson(user));
-    }
-
-    public synchronized void updateUserInfo(UserPojo user) {
-        Preference<String> userInfoPreference = SharePreferencesUtils.getInstance().getString(Constants.User.USER_INFO);
-        userInfoPreference.defaultValue();
-        userInfoPreference.set(GsonUtils.getGsonInstance().toJson(user));
-
-        mUser = user;
-
-        EventBus.getDefault().post(UpdateUserInfoEvent.newInstance());
-    }
-
-    public synchronized void clearUserInfo() {
-        SharePreferencesUtils.getInstance().getString(Constants.User.USER_INFO).delete();
-    }
 }

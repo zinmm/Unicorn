@@ -18,10 +18,8 @@ android {
             enabled true
         }
 
-        buildConfigField "String", "GITHUB_CLIENT_ID", properties.getProperty("GITHUB_CLIENT_ID")
-        buildConfigField "String", "GITHUB_SECRET", properties.getProperty("GITHUB_SECRET")
-        buildConfigField "String", "GITHUB_CALLBACK_URL", properties.getProperty("GITHUB_CALLBACK_URL")
     }
+
     buildTypes {
         release {
             minifyEnabled false
