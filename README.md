@@ -2,6 +2,8 @@
 
 ### Flag:
 
+This unicorn application.
+
 - widget
   - [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) 详情页吧
   - [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) 负责对滑动的响应
