@@ -18,5 +18,5 @@ This unicorn application.
   - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
   - √ [Butterknife](https://github.com/JakeWharton/butterknife)
   - √ [Retrofit](https://github.com/square/retrofit)
-  - √ [OkHttp](https://github.com/square/okhttp) 
+  - √ [OkHttp](https://github.com/square/okhttp)
   - √ [Glide](https://github.com/bumptech/glide)
