@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name="com.zin.unicorn.base.BaseApplication"
@@ -26,12 +28,28 @@
         </activity>
 
         <activity
-            android:theme="@style/AppTheme"
-            android:name="com.zin.unicorn.module.HomePageActivity" />
+            android:name="com.zin.unicorn.module.HomePageActivity"
+            android:theme="@style/AppTheme" />
 
         <activity
-            android:theme="@style/AppTheme"
-            android:name="com.zin.unicorn.module.user.activity.ProfileActivity" />
+            android:name="com.zin.unicorn.module.user.activity.ProfileActivity"
+            android:theme="@style/AppTheme" />
+
+        <receiver
+            android:name=".util.AppChangeBroadcastReceiver"
+            android:label="@string/app_name">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

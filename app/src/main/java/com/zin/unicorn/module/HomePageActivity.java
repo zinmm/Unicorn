@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.zin.sideslip.SideslipLayout;
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseActivity;
 import com.zin.unicorn.base.Navigator;
@@ -24,6 +25,8 @@ public class HomePageActivity extends BaseActivity {
     @BindView(R.id.observableScrollView)
     ObservableScrollView observableScrollView;
     private ActionBar actionBar;
+    @BindView(R.id.sideslipLayout)
+    SideslipLayout sideslipLayout;
 
     @Override
     public void init() {
@@ -43,6 +46,9 @@ public class HomePageActivity extends BaseActivity {
                 }
             }
         });
+
+        sideslipLayout.setCanLeftSwipe(true);
+        sideslipLayout.setCanRightSwipe(true);
     }
 
     @OnClick(R.id.tv_request_get)
