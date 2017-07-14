@@ -1,8 +1,9 @@
-package com.zin.toolutils;
+package com.zin.toolutils.crash;
 
 import android.content.Context;
 import android.os.Looper;
-import android.widget.Toast;
+
+import com.zin.toolutils.ToastUtils;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
@@ -12,6 +13,9 @@ import java.lang.Thread.UncaughtExceptionHandler;
 public class CrashHandler implements UncaughtExceptionHandler {
 
     private Context mContext;
+
+    private String errorMsg = "累了，休息一下";
+
     private static CrashHandler crashHandler;
     private UncaughtExceptionHandler mDefaultHandler;
 
@@ -80,11 +84,18 @@ public class CrashHandler implements UncaughtExceptionHandler {
             @Override
             public void run() {
                 Looper.prepare();
-//                Toast.makeText(mContext, R.string.crash_exception, Toast.LENGTH_LONG).show();
+                ToastUtils.showToast(mContext, getErrorMsg());
                 Looper.loop();
             }
 
         }.start();
         return true;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
 }

@@ -49,26 +49,27 @@ ext {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile "junit:junit:${junitVersion}"
     testCompile 'com.squareup.okhttp3:mockwebserver:3.6.0'
-
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
     compile "com.android.support:design:${supportLibVersion}"
     compile "io.reactivex.rxjava2:rxjava:${rxVersion}"
     compile "io.reactivex.rxjava2:rxandroid:${rxVersion}"
-//    compile "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
+    //    compile "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
     compile "com.squareup.retrofit2:retrofit:${retrofit2Version}"
     compile "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
-
     compile "com.trello.rxlifecycle2:rxlifecycle-components:${rxVersion}"
     compile "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
     compile "com.google.code.gson:gson:${gsonVersion}"
     compile "org.greenrobot:eventbus:${eventBusVersion}"
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
-    compile "com.github.bumptech.glide:glide:3.7.0"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
-
     compile 'com.alipay.euler:andfix:0.5.0@aar'
-    compile project(':sideslip')
+    compile 'com.github.zinmm:ToolUtils:V1.0'
+    compile 'com.github.zinmm:Sideslip:v0.2'
+    compile 'com.github.zinmm:runningapplication:v1.0'
+//    compile project(':toolutils')
+//    compile project(path: ':runningapplication')
 }

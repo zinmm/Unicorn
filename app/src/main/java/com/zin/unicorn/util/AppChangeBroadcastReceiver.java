@@ -1,5 +1,6 @@
 package com.zin.unicorn.util;
 
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,5 +28,19 @@ public class AppChangeBroadcastReceiver extends BroadcastReceiver {
             System.out.println("********************************");
             String packageName = intent.getDataString().substring(8);
         }
+
+        if (intent.getAction().equals("android.intent.action.USER_PRESENT")) {
+            System.out.println("android.intent.action.USER_PRESENT");
+
+            System.out.println(IsinKeyguardRestrictedInputMode(context) + "123132132213");
+        }
+    }
+
+    public boolean IsinKeyguardRestrictedInputMode(Context context) {
+        KeyguardManager mKeyguardManager;
+        mKeyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        boolean isScreenOn = mKeyguardManager.inKeyguardRestrictedInputMode();//
+
+        return isScreenOn;
     }
 }

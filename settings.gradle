@@ -1,1 +1,1 @@
-include ':app', ':sideslip', ':toolutils'
+include ':app'/*, ':toolutils', ':runningapplication', "sideslip"*/

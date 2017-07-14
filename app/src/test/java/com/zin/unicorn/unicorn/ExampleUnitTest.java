@@ -12,6 +12,10 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
+        String aa = "com.wole56.ishow_5.1.4_67";
+        int index = aa.indexOf("_");
+        aa = aa.substring(0, index);
+        System.out.println(aa);
         assertEquals(4, 2 + 2);
     }
 }

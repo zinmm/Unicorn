@@ -1,5 +1,6 @@
 package com.zin.unicorn.module;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.TextView;
@@ -27,10 +28,18 @@ public class HomePageActivity extends BaseActivity {
     private ActionBar actionBar;
     @BindView(R.id.sideslipLayout)
     SideslipLayout sideslipLayout;
+    @BindView(R.id.sideslipLayout1)
+    SideslipLayout sideslipLayout1;
+    @BindView(R.id.sideslipLayout2)
+    SideslipLayout sideslipLayout2;
+    @BindView(R.id.sideslipLayout3)
+    SideslipLayout sideslipLayout3;
+    @BindView(R.id.sideslipLayout4)
+    SideslipLayout sideslipLayout4;
 
     @Override
     public void init() {
-
+        http://ooej45z5i.bkt.clouddn.com/test.xlsx
         actionBar = getSupportActionBar();
 
         observableScrollView.setScrollListener(oritention -> {
@@ -47,13 +56,29 @@ public class HomePageActivity extends BaseActivity {
             }
         });
 
-        sideslipLayout.setCanLeftSwipe(true);
-        sideslipLayout.setCanRightSwipe(true);
+        startActivity(new Intent(mContext, com.zin.ra.nsgam.main.MainActivity.class));
     }
 
-    @OnClick(R.id.tv_request_get)
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+    }
+
+    @OnClick({R.id.tv_request_get, R.id.tv_excel})
     public void onClick(View v) {
-        Navigator.INSTANCE.navigateToProfile(mContext);
+
+        switch (v.getId()) {
+
+            case R.id.tv_request_get:
+                Navigator.INSTANCE.navigateToProfile(mContext);
+                break;
+
+            case R.id.tv_excel:
+                Navigator.INSTANCE.navigateToExcel(mContext);
+                break;
+        }
     }
 
     @Override

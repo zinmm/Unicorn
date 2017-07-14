@@ -6,6 +6,10 @@ package com.zin.unicorn.util;
  */
 public class Constants {
 
+    public static class API {
+        public static final String EXCEL_URL = "http://devtest.countrygarden.com.cn:8866/hermes.apis/api/Diary/ExportDiary";
+    }
+
     public static class User {
         public static final String USER_INFO = "USER_INFO";
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.zin.unicorn.module.HomePageActivity;
+import com.zin.unicorn.module.excel.activity.ExcelActivity;
 import com.zin.unicorn.module.user.activity.ProfileActivity;
 
 /**
@@ -24,6 +25,12 @@ public enum Navigator {
 
         Intent intent = new Intent(mContext, ProfileActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        mContext.startActivity(intent);
+    }
+
+    public void navigateToExcel(Context mContext) {
+
+        Intent intent = new Intent(mContext, ExcelActivity.class);
         mContext.startActivity(intent);
     }
 
