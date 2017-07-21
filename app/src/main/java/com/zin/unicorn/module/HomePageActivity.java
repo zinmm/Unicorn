@@ -56,7 +56,7 @@ public class HomePageActivity extends BaseActivity {
             }
         });
 
-        startActivity(new Intent(mContext, com.zin.ra.nsgam.main.MainActivity.class));
+//        startActivity(new Intent(mContext, com.zin.ra.nsgam.main.MainActivity.class));
     }
 
     @Override

@@ -65,11 +65,12 @@ dependencies {
     compile "org.greenrobot:eventbus:${eventBusVersion}"
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
     compile 'com.alipay.euler:andfix:0.5.0@aar'
     compile 'com.github.zinmm:ToolUtils:V1.0'
     compile 'com.github.zinmm:Sideslip:v0.2'
     compile 'com.github.zinmm:runningapplication:v1.0'
+
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
 //    compile project(':toolutils')
 //    compile project(path: ':runningapplication')
 }

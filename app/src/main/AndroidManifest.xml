@@ -34,13 +34,13 @@
             android:name="com.zin.unicorn.module.user.activity.ProfileActivity"
             android:theme="@style/AppTheme" />
 
-        <activity android:name=".module.excel.activity.ExcelActivity"/>
+        <activity android:name=".module.excel.activity.ExcelActivity" />
 
-        <receiver android:name="com.zin.toolutils.sys.ApplicationInstallActionUtil">
+        <!--<receiver android:name="com.zin.toolutils.sys.ApplicationInstallActionUtil">-->
 
-        </receiver>
+        <!--</receiver>-->
 
-        <activity android:name="com.zin.ra.nsgam.main.MainActivity"/>
+        <!--<activity android:name="com.zin.ra.nsgam.main.MainActivity"/>-->
 
         <receiver
             android:name=".util.AppChangeBroadcastReceiver"
@@ -62,6 +62,17 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.your.app.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
 
     </application>
 
