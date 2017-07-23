@@ -18,4 +18,5 @@
     <string name="sign_out">Sign out</string>
     <string name="x_points">%1$d pts</string>
     <string name="back">back</string>
+    <string name="post">上传</string>
 </resources>

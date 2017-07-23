@@ -10,8 +10,6 @@ public class BaseFragment extends Fragment {
 
     private View rootView;
 
-
-
     public View findViewById(int resId) {
         return rootView.findViewById(resId);
     }

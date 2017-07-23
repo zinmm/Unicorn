@@ -2,6 +2,7 @@ package com.zin.unicorn.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
 
 import com.zin.unicorn.base.BaseAdapter;
 
@@ -17,5 +18,15 @@ public class HomeAdapter extends BaseAdapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateCommon(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindCommon(RecyclerView.ViewHolder holder, Object item) {
+
     }
 }

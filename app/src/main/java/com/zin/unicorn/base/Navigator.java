@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.zin.unicorn.module.HomePageActivity;
 import com.zin.unicorn.module.excel.activity.ExcelActivity;
 import com.zin.unicorn.module.user.activity.ProfileActivity;
+import com.zin.unicorn.module.cost.activity.CostActivity;
 
 /**
  * Created by zinmm on 16/12/22.
@@ -39,5 +40,11 @@ public enum Navigator {
 //        Intent intent = new Intent(mContext, SignInPageActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        mContext.startActivity(intent);
+    }
+
+    public void navigateToCost(Context mContext) {
+
+        Intent intent = new Intent(mContext, CostActivity.class);
+        mContext.startActivity(intent);
     }
 }

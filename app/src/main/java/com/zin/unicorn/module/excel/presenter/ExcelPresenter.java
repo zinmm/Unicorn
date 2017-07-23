@@ -10,8 +10,10 @@ import android.os.Build;
 import android.os.StrictMode;
 
 import com.zin.unicorn.base.BasePresenter;
+import com.zin.unicorn.module.excel.adapter.ExcelAdapter;
 import com.zin.unicorn.module.excel.view.ExcelView;
 import com.zin.unicorn.network.HttpManager;
+import com.zin.unicorn.pojo.ExcelPojo;
 import com.zin.unicorn.util.FileMimeUtil;
 
 import java.io.File;
@@ -19,6 +21,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Calendar;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -31,6 +34,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by zhujinming on 2017/7/11.
  */
 public class ExcelPresenter extends BasePresenter<ExcelView> {
+
+    ExcelAdapter excelAdapter;
 
     public void requestGetExcel() {
 
@@ -90,6 +95,8 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
     }
 
     private boolean writeResponseBodyToDisk(ResponseBody body) {
+
+        ExcelPojo excelPojo = new ExcelPojo();
         try {
             File futureStudioIconFile = new File(mAppcationContext.getExternalFilesDir(null) + File.separator + "action.xls");
 
@@ -108,6 +115,8 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
                 byte[] fileReader = new byte[4096];
 
                 long fileSize = body.contentLength();
+                excelPojo.setFileSize(String.valueOf("文件大小：" + fileSize));
+
                 long fileSizeDownloaded = 0;
 
                 inputStream = body.byteStream();
@@ -156,11 +165,22 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
                         Uri uri = Uri.fromFile(file);
 
                         intent.setDataAndType(uri, FileMimeUtil.getMIMEType(file));
-                        try {
-                            mActivity.startActivity(intent);
-                        } catch (ActivityNotFoundException e) {
-                            mActivity.showSnackbar("not find excel application", true);
-                        }
+
+                        Long time = file.lastModified();
+                        Calendar cd = Calendar.getInstance();
+                        cd.setTimeInMillis(time);
+                        mActivity.showSnackbar(cd.getTime() + "", true);
+                        excelPojo.setCreateTime("创建时间: " + cd.getTime());
+                        excelPojo.setFileName("文间名: xxxooo");
+                        excelAdapter.addItem(excelPojo);
+                        excelAdapter.notifyDataSetChanged();
+
+                        System.out.println(cd.getTime());
+//                        try {
+//                            mActivity.startActivity(intent);
+//                        } catch (ActivityNotFoundException e) {
+//                            mActivity.showSnackbar("not find excel application", true);
+//                        }
                     }
                 });
 
@@ -168,5 +188,11 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public void initListView() {
+
+        excelAdapter = new ExcelAdapter(mContext);
+        getView().getListView().setAdapter(excelAdapter);
     }
 }

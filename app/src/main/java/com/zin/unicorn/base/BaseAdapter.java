@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by zhujinming on 2017/6/30.
  */
-public class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public abstract class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final static int HEADER = 10;
     private final static int COMMON = 15;
@@ -36,7 +36,7 @@ public class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private int itemCount;
 
-    private Context mContext;
+    public Context mContext;
     private List<Z> mData;
 
     public BaseAdapter(Context context) {
@@ -59,12 +59,12 @@ public class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        return onCreateCommon(parent, position);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        onBindCommon(holder, mData.get(position));
     }
 
     public void addHeader(View view) {
@@ -109,4 +109,8 @@ public class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public List<Z> getData() {
         return mData;
     }
+
+    public abstract RecyclerView.ViewHolder onCreateCommon(ViewGroup parent, int viewType);
+    public abstract void onBindCommon(RecyclerView.ViewHolder holder, Z item);
+
 }

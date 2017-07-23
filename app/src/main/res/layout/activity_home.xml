@@ -375,10 +375,11 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_cost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="HOME"
+                android:text="消费记录"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold" />

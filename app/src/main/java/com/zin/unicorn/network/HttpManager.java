@@ -3,9 +3,14 @@ package com.zin.unicorn.network;
 import com.zin.unicorn.pojo.UserPojo;
 import com.zin.unicorn.util.Constants;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;
 
@@ -20,4 +25,10 @@ public interface HttpManager {
     @Streaming
     @GET("Diary/ExportDiary")
     Call<ResponseBody> getExcel(@Query("isMonth") boolean isMonth, @Query("employeeId") int employeeId);
+
+    @Multipart
+    @POST("multipart/form-data")
+    Call<ResponseBody> upload(@Part("key") String key, @Part("token") String tokeng,
+                              @Part("crc32") String crc32, @Part("accept") String accept,
+                              @Part MultipartBody.Part file);
 }

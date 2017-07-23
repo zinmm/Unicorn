@@ -1,6 +1,5 @@
 package com.zin.unicorn.module;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.TextView;
@@ -66,7 +65,7 @@ public class HomePageActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_request_get, R.id.tv_excel})
+    @OnClick({R.id.tv_request_get, R.id.tv_excel, R.id.tv_cost})
     public void onClick(View v) {
 
         switch (v.getId()) {
@@ -77,6 +76,10 @@ public class HomePageActivity extends BaseActivity {
 
             case R.id.tv_excel:
                 Navigator.INSTANCE.navigateToExcel(mContext);
+                break;
+
+            case R.id.tv_cost:
+                Navigator.INSTANCE.navigateToCost(mContext);
                 break;
         }
     }

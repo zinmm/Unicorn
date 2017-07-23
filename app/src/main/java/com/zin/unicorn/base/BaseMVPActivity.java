@@ -35,10 +35,9 @@ public abstract class BaseMVPActivity<V, T extends BasePresenter<V>>
         mPresenter = null;
     }
 
+    protected abstract void initData();
+
     protected abstract T createPresenter();
 
     protected abstract int rootLayoutId();
-
-    protected abstract void initData();
-
 }
