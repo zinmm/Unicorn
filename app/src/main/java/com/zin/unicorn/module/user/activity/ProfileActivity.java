@@ -1,20 +1,28 @@
 package com.zin.unicorn.module.user.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.zin.toolutils.LogOrToastUtil;
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseMVPActivity;
 import com.zin.unicorn.module.user.presenter.ProfilePresenter;
 import com.zin.unicorn.module.user.view.ProfileView;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by zhujinming on 17/4/26.
  */
 
 public class ProfileActivity extends BaseMVPActivity<ProfileView, ProfilePresenter> implements ProfileView {
+
+    public static final int REQUEST_CODE_PICK = 300;
+    public static final int REQUEST_CODE_PHOTO_ZOOM = 301;
+    public static final int SUCCESS = -1;
 
     @BindView(R.id.iv_avatar)
     ImageView ivAvatar;
@@ -30,6 +38,18 @@ public class ProfileActivity extends BaseMVPActivity<ProfileView, ProfilePresent
     @Override
     protected void initData() {
         mPresenter.requestGetUserInfo();
+    }
+
+    @OnClick(R.id.iv_avatar)
+    public void onViewClicked() {
+        mPresenter.startPick();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        mPresenter.activityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -66,4 +86,5 @@ public class ProfileActivity extends BaseMVPActivity<ProfileView, ProfilePresent
     public TextView getTvGender() {
         return tvGender;
     }
+
 }

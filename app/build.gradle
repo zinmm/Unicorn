@@ -14,9 +14,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
 
     }
 
@@ -66,11 +66,11 @@ dependencies {
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.alipay.euler:andfix:0.5.0@aar'
-    compile 'com.github.zinmm:ToolUtils:V1.0'
+//    compile 'com.github.zinmm:ToolUtils:V1.0'
     compile 'com.github.zinmm:Sideslip:v0.2'
     compile 'com.github.zinmm:runningapplication:v1.0'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
-//    compile project(':toolutils')
+    compile project(':toolutils')
 //    compile project(path: ':runningapplication')
 }

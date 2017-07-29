@@ -14,6 +14,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -487,12 +488,24 @@ public class ImageUtils {
         int quality = 100;
         OutputStream stream = null;
         try {
-            stream = new FileOutputStream("/sdcard/" + filename);
+            stream = new FileOutputStream(filename);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         return bmp.compress(format, quality, stream);
+    }
+
+    public static void saveFile(Bitmap bm, String fileName) throws IOException {
+        File dirFile = new File(fileName);
+        if(!dirFile.exists()){
+            dirFile.mkdir();
+        }
+        File myCaptureFile = new File(fileName);
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
+        bm.compress(Bitmap.CompressFormat.JPEG, 80, bos);
+        bos.flush();
+        bos.close();
     }
 
 }

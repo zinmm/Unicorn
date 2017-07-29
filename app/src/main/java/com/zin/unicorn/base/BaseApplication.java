@@ -2,12 +2,10 @@ package com.zin.unicorn.base;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.alipay.euler.andfix.patch.PatchManager;
-import com.zin.unicorn.module.MainActivity;
 import com.zin.unicorn.util.ContextUtil;
 
 import java.io.IOException;

@@ -31,4 +31,8 @@ public interface HttpManager {
     Call<ResponseBody> upload(@Part("key") String key, @Part("token") String tokeng,
                               @Part("crc32") String crc32, @Part("accept") String accept,
                               @Part MultipartBody.Part file);
+
+    @Multipart
+    @POST("/api/Account/UpdateMyAvatar")
+    Call<ResponseBody> uploadAvatar(@Part("Authorization") MultipartBody.Part file);
 }
