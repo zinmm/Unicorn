@@ -11,6 +11,7 @@ import com.zin.toolutils.density.DensityUtils;
  * Created by zhujinming on 2017/7/23.
  */
 public class BrainApplication extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -27,7 +28,7 @@ public class BrainApplication extends Application {
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
+                ContextUtil.getInstance().setContext(activity); // Must!! First call this method.
             }
 
             @Override
@@ -37,7 +38,6 @@ public class BrainApplication extends Application {
 
             @Override
             public void onActivityResumed(Activity activity) {
-                ContextUtil.getInstance().setContext(activity); // Must!! First call this method.
             }
 
             @Override
@@ -57,7 +57,7 @@ public class BrainApplication extends Application {
 
             @Override
             public void onActivityDestroyed(Activity activity) {
-
+                ContextUtil.getInstance().onDestroyContext();
             }
         });
     }

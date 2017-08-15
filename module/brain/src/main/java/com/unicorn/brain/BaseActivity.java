@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.zin.toolutils.network.NetworkUtil;
+
 import butterknife.ButterKnife;
 
 /**
@@ -22,6 +24,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
     protected Context mApplication;
     protected Activity mActivity;
+
+    public boolean isConnected;
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         init();
+
+        isConnected = NetworkUtil.isNetToast(mApplication);
     }
 
     @Override
