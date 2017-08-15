@@ -354,6 +354,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <com.zin.unicorn.widget.PointView
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
             <TextView
                 android:id="@+id/tv_request_get"
                 android:layout_width="match_parent"
@@ -385,10 +394,11 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_face"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="HOME"
+                android:text="FACE"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold" />

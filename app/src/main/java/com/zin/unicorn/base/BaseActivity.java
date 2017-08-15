@@ -1,5 +1,6 @@
 package com.zin.unicorn.base;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -48,7 +49,7 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     private NetWorkChangeBroadcastReceiver netWorkChangeBroadcastReceiver;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (isTopBarTranslucent()) {
             setTopBarTranslucent();
@@ -100,7 +101,7 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     }
 
     public void showSnackbar(String content, boolean... isError) {
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.root), content, Snackbar.LENGTH_SHORT);
+        @SuppressLint("WrongViewCast") Snackbar snackbar = Snackbar.make(findViewById(R.id.root), content, Snackbar.LENGTH_SHORT);
 
         Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
         TextView snackbarTextView = (TextView) snackbarLayout.findViewById(R.id.snackbar_text);

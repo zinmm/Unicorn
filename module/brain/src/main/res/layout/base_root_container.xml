@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ViewStub
+        android:id="@+id/vs_base_topic_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_topic_height"
+        android:fitsSystemWindows="true"
+        android:layout="@layout/base_topic_bar" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fl_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="@color/darker_gray" />
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

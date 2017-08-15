@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.zin.unicorn.module.HomePageActivity;
 import com.zin.unicorn.module.excel.activity.ExcelActivity;
+import com.zin.unicorn.module.face.FaceDetectorActivity;
 import com.zin.unicorn.module.user.activity.ProfileActivity;
 import com.zin.unicorn.module.cost.activity.CostActivity;
 
@@ -45,6 +46,11 @@ public enum Navigator {
     public void navigateToCost(Context mContext) {
 
         Intent intent = new Intent(mContext, CostActivity.class);
+        mContext.startActivity(intent);
+    }
+
+    public void navigateToFace(Context mContext) {
+        Intent intent = new Intent(mContext, FaceDetectorActivity.class);
         mContext.startActivity(intent);
     }
 }

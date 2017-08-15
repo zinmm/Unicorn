@@ -4,20 +4,22 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.zin.unicorn"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-//        jackOptions {
-//            enabled true
-//        }
-
+        // 开启 jackOptions 以使用 jdk 8
+        jackOptions {
+            enabled true
+        }
     }
 
     buildTypes {
@@ -38,39 +40,57 @@ android {
 }
 
 ext {
-    supportLibVersion = "25.3.1"
+    supportLibVersion = "26.+"
     rxVersion = "2.0.1"
     rxPreferencesVersion = "2.0.0-RC1"
     retrofit2Version = "2.2.0"
     gsonVersion = "2.8.0"
     eventBusVersion = "3.0.0"
-    butterknifeVersion = "8.5.1"
+    butterknifeVersion = "8.7.0"
     junitVersion = "4.12"
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile "junit:junit:${junitVersion}"
+    // okHttp 网络框架
     testCompile 'com.squareup.okhttp3:mockwebserver:3.6.0'
+    // v7 包
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    // design 自带
     compile "com.android.support:design:${supportLibVersion}"
+    // rx java
     compile "io.reactivex.rxjava2:rxjava:${rxVersion}"
+    // rx Android
     compile "io.reactivex.rxjava2:rxandroid:${rxVersion}"
+    // rx adapter
     //    compile "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
+    // retrofit 网络框架
     compile "com.squareup.retrofit2:retrofit:${retrofit2Version}"
+    // g son 解析 json
     compile "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
+    // rx lifecycle 解决 rxjava 内存泄露
     compile "com.trello.rxlifecycle2:rxlifecycle-components:${rxVersion}"
+    // rx preferences 存文件
     compile "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
+    // google 推出的 gson
     compile "com.google.code.gson:gson:${gsonVersion}"
+    // event bus callback
     compile "org.greenrobot:eventbus:${eventBusVersion}"
+    // butter knife
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
+    // glide 图片加载框架
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    // 阿里热修复
     compile 'com.alipay.euler:andfix:0.5.0@aar'
-//    compile 'com.github.zinmm:ToolUtils:V1.0'
-    compile 'com.github.zinmm:Sideslip:v0.2'
-    compile 'com.github.zinmm:runningapplication:v1.0'
 
+    // 检查栈顶应用的
+    compile project(path: ':module:runningapplication')
+    // 侧滑菜单
+    compile project(path: ':module:sideslip')
+
+    // butter knife
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
-    compile project(':toolutils')
-//    compile project(path: ':runningapplication')
+    compile project(path: ':module:toolutils')
 }
+

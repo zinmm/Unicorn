@@ -26,8 +26,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.zin.unicorn.module.user.activity.ProfileActivity.REQUEST_CODE_PICK;
 import static com.zin.unicorn.module.user.activity.ProfileActivity.REQUEST_CODE_PHOTO_ZOOM;
+import static com.zin.unicorn.module.user.activity.ProfileActivity.REQUEST_CODE_PICK;
 import static com.zin.unicorn.module.user.activity.ProfileActivity.SUCCESS;
 
 /**

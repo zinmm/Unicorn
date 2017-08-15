@@ -2,9 +2,12 @@ package com.zin.unicorn.module;
 
 import android.support.v7.app.ActionBar;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.zin.sideslip.SideslipLayout;
+import com.zin.toolutils.ToastUtils;
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseActivity;
 import com.zin.unicorn.base.Navigator;
@@ -35,10 +38,12 @@ public class HomePageActivity extends BaseActivity {
     SideslipLayout sideslipLayout3;
     @BindView(R.id.sideslipLayout4)
     SideslipLayout sideslipLayout4;
+    @BindView(R.id.checkbox)
+    CheckBox checkBox;
 
     @Override
     public void init() {
-        http://ooej45z5i.bkt.clouddn.com/test.xlsx
+
         actionBar = getSupportActionBar();
 
         observableScrollView.setScrollListener(oritention -> {
@@ -54,6 +59,14 @@ public class HomePageActivity extends BaseActivity {
                 }
             }
         });
+        checkBox.setChecked(true);
+        observableScrollView.setClickable(false);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ToastUtils.showToast(mContext, isChecked + "");
+            }
+        });
 
 //        startActivity(new Intent(mContext, com.zin.ra.nsgam.main.MainActivity.class));
     }
@@ -65,7 +78,7 @@ public class HomePageActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_request_get, R.id.tv_excel, R.id.tv_cost})
+    @OnClick({R.id.tv_request_get, R.id.tv_excel, R.id.tv_cost, R.id.tv_face})
     public void onClick(View v) {
 
         switch (v.getId()) {
@@ -80,6 +93,10 @@ public class HomePageActivity extends BaseActivity {
 
             case R.id.tv_cost:
                 Navigator.INSTANCE.navigateToCost(mContext);
+                break;
+
+            case R.id.tv_face:
+                Navigator.INSTANCE.navigateToFace(mContext);
                 break;
         }
     }

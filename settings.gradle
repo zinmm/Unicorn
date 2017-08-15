@@ -1,1 +1,2 @@
-include ':app', ':toolutils'/*, ':runningapplication', "sideslip"*/
+include ':app'
+include ':module:toolutils', ':module:runningapplication', ':module:sideslip', ':module:brain'

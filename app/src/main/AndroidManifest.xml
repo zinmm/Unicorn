@@ -34,6 +34,10 @@
             android:name="com.zin.unicorn.module.user.activity.ProfileActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name="com.zin.unicorn.module.face.FaceDetectorActivity"
+            android:theme="@style/AppTheme" />
+
         <activity android:name=".module.excel.activity.ExcelActivity" />
 
         <!--<receiver android:name="com.zin.toolutils.sys.ApplicationInstallActionUtil">-->
