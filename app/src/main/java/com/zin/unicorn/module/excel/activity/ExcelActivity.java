@@ -1,6 +1,5 @@
 package com.zin.unicorn.module.excel.activity;
 
-import android.os.Bundle;
 import android.widget.ListView;
 
 import com.zin.unicorn.R;
@@ -9,7 +8,6 @@ import com.zin.unicorn.module.excel.presenter.ExcelPresenter;
 import com.zin.unicorn.module.excel.view.ExcelView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by zhujinming on 2017/7/11.

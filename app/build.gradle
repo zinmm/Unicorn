@@ -39,6 +39,17 @@ android {
     }
 }
 
+repositories {
+
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 ext {
     supportLibVersion = "26.+"
     rxVersion = "2.0.1"
@@ -69,8 +80,6 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:${retrofit2Version}"
     // g son 解析 json
     compile "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
-    // rx lifecycle 解决 rxjava 内存泄露
-    compile "com.trello.rxlifecycle2:rxlifecycle-components:${rxVersion}"
     // rx preferences 存文件
     compile "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
     // google 推出的 gson
@@ -81,16 +90,23 @@ dependencies {
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
     // glide 图片加载框架
     compile 'com.github.bumptech.glide:glide:3.7.0'
+
     // 阿里热修复
-    compile 'com.alipay.euler:andfix:0.5.0@aar'
+    compile 'com.aliyun.ams:alicloud-android-hotfix:3.0.2'
+    compile('com.aliyun.ams:alicloud-android-hotfix:3.0.5') {
+        exclude(module: 'alicloud-android-utdid')
+    }
 
     // 检查栈顶应用的
     compile project(path: ':module:runningapplication')
     // 侧滑菜单
     compile project(path: ':module:sideslip')
+    // 工具类
+    compile project(path: ':module:toolutils')
+    // system control
+    compile project(path: ':module:brain')
 
     // butter knife
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
-    compile project(path: ':module:toolutils')
 }
 

@@ -1,6 +1,5 @@
 package com.zin.unicorn.module.cost.activity;
 
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -10,7 +9,6 @@ import com.zin.unicorn.module.cost.presenter.CostUploadPresenter;
 import com.zin.unicorn.module.cost.view.CostUploadView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

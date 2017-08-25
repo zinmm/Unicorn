@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by zinmm on 17/3/20.
  */
 
-public class UserPojo<E> implements Serializable {
+public class UserPoJo<E> implements Serializable {
 
     private long id;
     private String userName;
@@ -65,7 +65,7 @@ public class UserPojo<E> implements Serializable {
 
     @Override
     public String toString() {
-        return "UserPojo{" +
+        return "UserPoJo{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +

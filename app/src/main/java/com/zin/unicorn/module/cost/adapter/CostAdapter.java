@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseAdapter;
-import com.zin.unicorn.pojo.CostPojo;
+import com.zin.unicorn.pojo.CostPoJo;
 
 /**
  * Created by zhujinming on 2017/7/21.
  */
-public class CostAdapter extends BaseAdapter<CostPojo> {
+public class CostAdapter extends BaseAdapter<CostPoJo> {
 
     public CostAdapter(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class CostAdapter extends BaseAdapter<CostPojo> {
     }
 
     @Override
-    public void onBindCommon(RecyclerView.ViewHolder holder, CostPojo item) {
+    public void onBindCommon(RecyclerView.ViewHolder holder, CostPoJo item) {
 
     }
 }

@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 /**
  * Created by zinmm on 16/7/13.
  */
-public class BaseTopBarView {
+public class BrainTopBarView {
 
     /**
      * @param mContext
@@ -84,7 +84,7 @@ public class BaseTopBarView {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((BaseActivity) contextWeakReference.get()).onBackPressed();
+                ((BrainActivity) contextWeakReference.get()).onBackPressed();
             }
         });
 

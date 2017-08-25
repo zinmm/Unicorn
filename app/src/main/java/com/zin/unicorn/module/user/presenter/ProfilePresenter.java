@@ -12,7 +12,7 @@ import com.zin.toolutils.image.ImageUtils;
 import com.zin.unicorn.base.BasePresenter;
 import com.zin.unicorn.module.user.view.ProfileView;
 import com.zin.unicorn.network.HttpManager;
-import com.zin.unicorn.pojo.UserPojo;
+import com.zin.unicorn.pojo.UserPoJo;
 
 import java.io.File;
 
@@ -48,31 +48,31 @@ public class ProfilePresenter extends BasePresenter<ProfileView> {
                 .build();
 
         HttpManager movieService = retrofit.create(HttpManager.class);
-        Call<UserPojo> call = movieService.getUserInfo();
-        call.enqueue(new Callback<UserPojo>() {
+        Call<UserPoJo> call = movieService.getUserInfo();
+        call.enqueue(new Callback<UserPoJo>() {
             @Override
-            public void onResponse(Call<UserPojo> call, Response<UserPojo> response) {
+            public void onResponse(Call<UserPoJo> call, Response<UserPoJo> response) {
 
                 mActivity.hideProgressBar();
 
-                UserPojo userPojo = response.body();
+                UserPoJo userPoJo = response.body();
 
-                if (userPojo == null) {
+                if (userPoJo == null) {
                     mActivity.showSnackbar("data error", true);
                     return;
                 }
 
-                Glide.with(mContext).load(userPojo.getAvatar()).centerCrop().into(getView().getIvAvatar());
-                getView().getTvId().setText(String.valueOf(userPojo.getId()));
-                getView().getTvGender().setText(userPojo.getGender());
-                getView().getTvUsername().setText(userPojo.getUserName());
-                getView().getTvPassword().setText(userPojo.getPassword());
+                Glide.with(mContext).load(userPoJo.getAvatar()).centerCrop().into(getView().getIvAvatar());
+                getView().getTvId().setText(String.valueOf(userPoJo.getId()));
+                getView().getTvGender().setText(userPoJo.getGender());
+                getView().getTvUsername().setText(userPoJo.getUserName());
+                getView().getTvPassword().setText(userPoJo.getPassword());
 
                 mActivity.showSnackbar("success");
             }
 
             @Override
-            public void onFailure(Call<UserPojo> call, Throwable t) {
+            public void onFailure(Call<UserPoJo> call, Throwable t) {
                 mActivity.hideProgressBar();
 
                 mActivity.showSnackbar("network error", true);

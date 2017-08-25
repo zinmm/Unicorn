@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by zhujinming on 2017/7/21.
  */
-public class CostPojo implements Serializable {
+public class CostPoJo implements Serializable {
 
     private String mark;
     private String name;
@@ -37,7 +37,7 @@ public class CostPojo implements Serializable {
 
     @Override
     public String toString() {
-        return "CostPojo{" +
+        return "CostPoJo{" +
                 "mark='" + mark + '\'' +
                 ", name='" + name + '\'' +
                 ", money=" + money +

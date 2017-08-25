@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-
 public class MainActivity extends BaseActivity {
 
     private final int LOAD_HOME_TIME = 1500;

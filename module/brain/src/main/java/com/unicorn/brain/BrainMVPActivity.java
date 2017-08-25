@@ -3,8 +3,8 @@ package com.unicorn.brain;
 /**
  * Created by zhujinming on 2017/7/23.
  */
-public abstract class BaseMVPActivity<V, P extends BasePresenter<V>>
-        extends BaseActivity {
+public abstract class BrainMVPActivity<V, P extends BrainPresenter<V>>
+        extends BrainActivity {
 
     protected P mPresenter;
 

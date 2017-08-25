@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.zin.unicorn.pojo.ExcelPojo;
+import com.zin.unicorn.pojo.ExcelPoJo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,21 +19,21 @@ import java.util.List;
 public class ExcelAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<ExcelPojo> excelPojos;
+    private List<ExcelPoJo> excelPoJos;
 
     public ExcelAdapter(Context context) {
         this.mContext = context;
-        this.excelPojos = new ArrayList<>();
+        this.excelPoJos = new ArrayList<>();
     }
 
     @Override
     public int getCount() {
-        return excelPojos.size();
+        return excelPoJos.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return excelPojos.get(position);
+        return excelPoJos.get(position);
     }
 
     @Override
@@ -47,10 +47,10 @@ public class ExcelAdapter extends BaseAdapter {
         LinearLayout linearLayout = new LinearLayout(mContext);
         linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
 
-        ExcelPojo excelPojo = excelPojos.get(position);
-        String createTime = excelPojo.getCreateTime();
-        String fileName = excelPojo.getFileName();
-        String fileSize = excelPojo.getFileSize();
+        ExcelPoJo excelPoJo = excelPoJos.get(position);
+        String createTime = excelPoJo.getCreateTime();
+        String fileName = excelPoJo.getFileName();
+        String fileSize = excelPoJo.getFileSize();
 
         TextView createTimetextView = new TextView(mContext);
         createTimetextView.setText(createTime);
@@ -68,12 +68,12 @@ public class ExcelAdapter extends BaseAdapter {
         return linearLayout;
     }
 
-    public void setData(List<ExcelPojo> excelPojos) {
-        this.excelPojos = excelPojos;
+    public void setData(List<ExcelPoJo> excelPoJos) {
+        this.excelPoJos = excelPoJos;
     }
 
-    public void addItem(ExcelPojo item) {
-        excelPojos.add(item);
+    public void addItem(ExcelPoJo item) {
+        excelPoJos.add(item);
 
     }
 }

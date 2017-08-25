@@ -3,7 +3,7 @@ package com.zin.unicorn.base;
 import android.content.Context;
 import android.content.Intent;
 
-import com.zin.unicorn.module.HomePageActivity;
+import com.zin.unicorn.module.home.activity.HomePageActivity;
 import com.zin.unicorn.module.excel.activity.ExcelActivity;
 import com.zin.unicorn.module.face.FaceDetectorActivity;
 import com.zin.unicorn.module.user.activity.ProfileActivity;

@@ -1,6 +1,5 @@
 package com.zin.unicorn.module.excel.presenter;
 
-import android.content.ActivityNotFoundException;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +12,7 @@ import com.zin.unicorn.base.BasePresenter;
 import com.zin.unicorn.module.excel.adapter.ExcelAdapter;
 import com.zin.unicorn.module.excel.view.ExcelView;
 import com.zin.unicorn.network.HttpManager;
-import com.zin.unicorn.pojo.ExcelPojo;
+import com.zin.unicorn.pojo.ExcelPoJo;
 import com.zin.unicorn.util.FileMimeUtil;
 
 import java.io.File;
@@ -96,7 +95,7 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
 
     private boolean writeResponseBodyToDisk(ResponseBody body) {
 
-        ExcelPojo excelPojo = new ExcelPojo();
+        ExcelPoJo excelPoJo = new ExcelPoJo();
         try {
             File futureStudioIconFile = new File(mAppcationContext.getExternalFilesDir(null) + File.separator + "action.xls");
 
@@ -115,7 +114,7 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
                 byte[] fileReader = new byte[4096];
 
                 long fileSize = body.contentLength();
-                excelPojo.setFileSize(String.valueOf("文件大小：" + fileSize));
+                excelPoJo.setFileSize(String.valueOf("文件大小：" + fileSize));
 
                 long fileSizeDownloaded = 0;
 
@@ -170,9 +169,9 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
                         Calendar cd = Calendar.getInstance();
                         cd.setTimeInMillis(time);
                         mActivity.showSnackbar(cd.getTime() + "", true);
-                        excelPojo.setCreateTime("创建时间: " + cd.getTime());
-                        excelPojo.setFileName("文间名: xxxooo");
-                        excelAdapter.addItem(excelPojo);
+                        excelPoJo.setCreateTime("创建时间: " + cd.getTime());
+                        excelPoJo.setFileName("文间名: xxxooo");
+                        excelAdapter.addItem(excelPoJo);
                         excelAdapter.notifyDataSetChanged();
 
                         System.out.println(cd.getTime());

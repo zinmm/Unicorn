@@ -2,6 +2,8 @@ package com.zin.unicorn.base;
 
 import android.content.Context;
 
+import com.unicorn.brain.BrainPresenter;
+
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
@@ -9,7 +11,7 @@ import java.lang.ref.WeakReference;
  * Base of Presenter
  * Created by zhujinming on 2017/05/07.
  */
-public abstract class BasePresenter<V> {
+public abstract class BasePresenter<V> extends BrainPresenter<V> {
 
     protected BaseActivity mActivity;
     protected Context mContext;

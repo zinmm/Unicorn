@@ -1,11 +1,9 @@
 package com.zin.unicorn.module.user.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.zin.toolutils.LogOrToastUtil;
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseMVPActivity;
 import com.zin.unicorn.module.user.presenter.ProfilePresenter;

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by zhujinming on 2017/7/24.
  */
-public class ExcelPojo implements Serializable {
+public class ExcelPoJo implements Serializable {
 
     private String fileName;
     private String createTime;

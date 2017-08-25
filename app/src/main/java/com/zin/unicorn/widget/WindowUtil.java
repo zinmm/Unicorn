@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +25,7 @@ public class WindowUtil {
     private static WindowManager mWindowManager = null;
     private static Context mContext = null;
     public static Boolean isShown = false;
+
     /**
      * 显示弹出框
      *

@@ -2,6 +2,7 @@ package com.unicorn.brain;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.zin.toolutils.ContextUtil;
@@ -29,6 +30,7 @@ public class BrainApplication extends Application {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
                 ContextUtil.getInstance().setContext(activity); // Must!! First call this method.
+
             }
 
             @Override

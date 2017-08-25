@@ -8,9 +8,9 @@ import java.lang.ref.WeakReference;
 /**
  * Created by zhujinming on 2017/7/23.
  */
-public abstract class BasePresenter<V> {
+public abstract class BrainPresenter<V> {
 
-    protected BaseActivity mActivity;
+    protected BrainActivity mActivity;
     protected Context mContext;
     protected Context mAppcationContext;
 
@@ -23,7 +23,7 @@ public abstract class BasePresenter<V> {
     protected void attachContext(Context mContext) {
         this.mContext = mContext;
         this.mAppcationContext = mContext.getApplicationContext();
-        this.mActivity = (BaseActivity) mContext;
+        this.mActivity = (BrainActivity) mContext;
     }
 
     protected V getView() {

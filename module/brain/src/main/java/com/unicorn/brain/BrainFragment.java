@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * Created by zhujinming on 2017/7/23.
  */
-public class BaseFragment extends Fragment {
+public class BrainFragment extends Fragment {
 
     protected Context mContext;
     protected Context mApplication;

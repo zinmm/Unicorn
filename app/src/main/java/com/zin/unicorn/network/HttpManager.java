@@ -1,10 +1,8 @@
 package com.zin.unicorn.network;
 
-import com.zin.unicorn.pojo.UserPojo;
-import com.zin.unicorn.util.Constants;
+import com.zin.unicorn.pojo.UserPoJo;
 
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -20,7 +18,7 @@ import retrofit2.http.Streaming;
 public interface HttpManager {
 
     @GET("Unicorn//getUser")
-    Call<UserPojo> getUserInfo();
+    Call<UserPoJo> getUserInfo();
 
     @Streaming
     @GET("Diary/ExportDiary")

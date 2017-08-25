@@ -26,17 +26,19 @@
         android:layout_height="@dimen/topbar_height"
         android:fitsSystemWindows="true"
         android:layout="@layout/base_activity_topbar" />
+
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    <FrameLayout
-        android:id="@+id/root"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background_color" >
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color">
 
         </FrameLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
