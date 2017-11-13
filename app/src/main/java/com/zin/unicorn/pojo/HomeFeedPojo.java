@@ -1,7 +1,7 @@
 package com.zin.unicorn.pojo;
 
 /**
- * Created by zhujinming on 2017/8/16.
+ * Created by ZhuJinMing on 2017/8/16.
  */
 public class HomeFeedPojo {
 

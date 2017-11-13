@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by zhujinming on 2017/7/21.
+ * Created by ZhuJinMing on 2017/7/21.
  */
 public class CostUploadPresenter extends BasePresenter<CostUploadView> {
 

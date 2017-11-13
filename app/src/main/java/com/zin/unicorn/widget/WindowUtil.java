@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.zin.unicorn.R;
 
 /**
- * Created by zhujinming on 2017/7/7.
+ * Created by ZhuJinMing on 2017/7/7.
  */
 
 public class WindowUtil {
@@ -57,7 +57,7 @@ public class WindowUtil {
         params.type = WindowManager.LayoutParams.TYPE_TOAST;
         // WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
         // 设置flag
-        int flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        int flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         // | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         // 如果设置了WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE，弹出的View收不到Back键的事件
         params.flags = flags;
@@ -125,19 +125,19 @@ public class WindowUtil {
                 return false;
             }
         });
-        // 点击back键可消除
-        view.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                switch (keyCode) {
-                    case KeyEvent.KEYCODE_BACK:
-                        WindowUtil.hidePopupWindow();
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
+//        // 点击back键可消除
+//        view.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                switch (keyCode) {
+//                    case KeyEvent.KEYCODE_BACK:
+//                        WindowUtil.hidePopupWindow();
+//                        return true;
+//                    default:
+//                        return false;
+//                }
+//            }
+//        });
         return view;
     }
 }

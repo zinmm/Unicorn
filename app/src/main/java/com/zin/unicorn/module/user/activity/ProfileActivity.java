@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by zhujinming on 17/4/26.
+ * Created by ZhuJinMing on 17/4/26.
  */
 
 public class ProfileActivity extends BaseMVPActivity<ProfileView, ProfilePresenter> implements ProfileView {

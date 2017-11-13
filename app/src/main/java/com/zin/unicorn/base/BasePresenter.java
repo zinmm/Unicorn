@@ -1,15 +1,16 @@
 package com.zin.unicorn.base;
 
 import android.content.Context;
+import android.content.Intent;
 
-import com.unicorn.brain.BrainPresenter;
+import com.unicorn.brain.base.BrainPresenter;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
 /**
  * Base of Presenter
- * Created by zhujinming on 2017/05/07.
+ * Created by ZhuJinMing on 2017/05/07.
  */
 public abstract class BasePresenter<V> extends BrainPresenter<V> {
 
@@ -48,5 +49,9 @@ public abstract class BasePresenter<V> extends BrainPresenter<V> {
         mContext = null;
         mAppcationContext = null;
         mActivity = null;
+    }
+
+    public void startActivity(Intent intent) {
+        mContext.startActivity(intent);
     }
 }

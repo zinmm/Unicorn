@@ -3,7 +3,7 @@ package com.zin.unicorn.pojo.tank;
 import java.io.Serializable;
 
 /**
- * Created by zhujinming on 2017/8/18.
+ * Created by ZhuJinMing on 2017/8/18.
  */
 public class ShellPojo implements Serializable {
 

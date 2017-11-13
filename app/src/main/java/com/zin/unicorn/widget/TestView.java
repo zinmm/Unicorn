@@ -8,11 +8,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zin.toolutils.density.DensityUtils;
-import com.zin.toolutils.image.ImageUtils;
-
 /**
- * Created by zhujinming on 17/5/4.
+ * Created by ZhuJinMing on 17/5/4.
  */
 
 public class TestView extends View {
@@ -34,9 +31,10 @@ public class TestView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        paint.setStrokeWidth(100);
-        paint.setColor(Color.GREEN); // 设置为红色
+        paint.setStrokeWidth(1);
+        paint.setColor(Color.RED);
         paint.setAntiAlias(true);
+        paint.setAlpha(90);
 
         canvas.drawColor(Color.GRAY);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, 300, paint);

@@ -2,7 +2,7 @@ package com.zin.unicorn.util;
 
 /**
  * Constants
- * Created by zhujinming on 4/1/16.
+ * Created by ZhuJinMing on 4/1/16.
  */
 public class Constants {
 

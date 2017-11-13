@@ -1,8 +1,10 @@
 package com.zin.unicorn.base;
 
+import com.unicorn.brain.base.BrainActivity;
+
 /**
  * Created by zinmm on 12/14/16.
  */
-public abstract class BaseActivity extends com.unicorn.brain.BrainActivity {
+public abstract class BaseActivity extends BrainActivity {
 
 }

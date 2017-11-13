@@ -11,7 +11,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 /**
- * Created by zhujinming on 17/4/27.
+ * Created by ZhuJinMing on 17/4/27.
  */
 
 public class OkHttp3Utils {
@@ -21,7 +21,6 @@ public class OkHttp3Utils {
     //设置缓存目录
     private static File cacheDirectory = new File(ContextUtil.getInstance().getApplicationContext().getCacheDir().getAbsolutePath(), "MyCache");
     private static Cache cache = new Cache(cacheDirectory, 10 * 1024 * 1024);
-
 
     /**
      * 获取OkHttpClient对象

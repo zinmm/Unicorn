@@ -10,7 +10,7 @@ import com.zin.unicorn.base.BaseAdapter;
 import com.zin.unicorn.pojo.CostPoJo;
 
 /**
- * Created by zhujinming on 2017/7/21.
+ * Created by ZhuJinMing on 2017/7/21.
  */
 public class CostAdapter extends BaseAdapter<CostPoJo> {
 

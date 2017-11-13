@@ -1,7 +1,7 @@
 package com.zin.unicorn.base;
 
 /**
- * Created by zhujinming on 17/5/4.
+ * Created by ZhuJinMing on 17/5/4.
  */
 
 public abstract class BaseMVPActivity<V, T extends BasePresenter<V>>

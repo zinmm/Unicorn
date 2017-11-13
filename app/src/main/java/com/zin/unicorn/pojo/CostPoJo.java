@@ -3,7 +3,7 @@ package com.zin.unicorn.pojo;
 import java.io.Serializable;
 
 /**
- * Created by zhujinming on 2017/7/21.
+ * Created by ZhuJinMing on 2017/7/21.
  */
 public class CostPoJo implements Serializable {
 

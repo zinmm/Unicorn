@@ -3,7 +3,7 @@ package com.zin.unicorn.util;
 import java.io.File;
 
 /**
- * Created by zhujinming on 2017/7/21.
+ * Created by ZhuJinMing on 2017/7/21.
  */
 public class FileMimeUtil {
 

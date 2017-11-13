@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import com.zin.unicorn.R;
 
 /**
- * Created by zhujinming on 2017/8/11.
+ * Created by ZhuJinMing on 2017/8/11.
  */
 public class FaceView extends AppCompatImageView {
 

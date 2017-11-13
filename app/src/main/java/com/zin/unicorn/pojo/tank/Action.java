@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Created by zhujinming on 2017/8/21.
+ * Created by ZhuJinMing on 2017/8/21.
  */
 public class Action {
     public static final int MOVE_LEFT = 0;

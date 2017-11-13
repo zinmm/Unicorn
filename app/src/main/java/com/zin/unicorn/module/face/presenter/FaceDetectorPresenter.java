@@ -6,7 +6,7 @@ import com.zin.unicorn.base.BasePresenter;
 import com.zin.unicorn.module.face.view.FaceDetectorView;
 
 /**
- * Created by zhujinming on 2017/8/10.
+ * Created by ZhuJinMing on 2017/8/10.
  */
 
 public class FaceDetectorPresenter extends BasePresenter<FaceDetectorView> {

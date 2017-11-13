@@ -5,7 +5,7 @@ import com.zin.unicorn.module.console.view.ConsoleView;
 import com.zin.unicorn.pojo.tank.TankPoJo;
 
 /**
- * Created by zhujinming on 2017/8/18.
+ * Created by ZhuJinMing on 2017/8/18.
  */
 public class ConsolePresenter extends BasePresenter<ConsoleView> {
 
@@ -25,6 +25,7 @@ public class ConsolePresenter extends BasePresenter<ConsoleView> {
     }
 
     private void function(int function) {
+
         switch (function) {
 
             case FUNCTION_A:

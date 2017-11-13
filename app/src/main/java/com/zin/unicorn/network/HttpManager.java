@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 import retrofit2.http.Streaming;
 
 /**
- * Created by zhujinming on 17/4/26.
+ * Created by ZhuJinMing on 17/4/26.
  */
 public interface HttpManager {
 

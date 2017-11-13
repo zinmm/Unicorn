@@ -4,7 +4,7 @@ import android.view.SurfaceView;
 import android.widget.Button;
 
 /**
- * Created by zhujinming on 2017/8/18.
+ * Created by ZhuJinMing on 2017/8/18.
  */
 public interface ConsoleView {
 

@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by zhujinming on 2017/8/18.
+ * Created by ZhuJinMing on 2017/8/18.
  */
 public class ConsoleActivity extends
         BaseMVPActivity<ConsoleView, ConsolePresenter> implements ConsoleView {

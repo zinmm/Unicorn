@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.zin.unicorn.base.BaseAdapter;
 
 /**
- * Created by zhujinming on 2017/7/11.
+ * Created by ZhuJinMing on 2017/7/11.
  */
 public class HomeAdapter extends BaseAdapter {
 

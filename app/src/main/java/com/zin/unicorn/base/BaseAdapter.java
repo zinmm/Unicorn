@@ -24,7 +24,7 @@ import java.util.List;
 //      ┃┫┫    ┃┫┫
 //      ┗┻┛    ┗┻┛
 /**
- * Created by zhujinming on 2017/6/30.
+ * Created by ZhuJinMing on 2017/6/30.
  */
 public abstract class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

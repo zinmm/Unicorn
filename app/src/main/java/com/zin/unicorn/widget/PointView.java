@@ -13,7 +13,7 @@ import android.view.View;
 import static com.zin.toolutils.density.DensityUtils.dip2px;
 
 /**
- * Created by zhujinming on 2017/8/8.
+ * Created by ZhuJinMing on 2017/8/8.
  */
 
 public class PointView extends View {

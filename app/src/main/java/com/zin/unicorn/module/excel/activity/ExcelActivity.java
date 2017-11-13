@@ -10,7 +10,7 @@ import com.zin.unicorn.module.excel.view.ExcelView;
 import butterknife.BindView;
 
 /**
- * Created by zhujinming on 2017/7/11.
+ * Created by ZhuJinMing on 2017/7/11.
  */
 public class ExcelActivity extends BaseMVPActivity<ExcelView, ExcelPresenter> implements ExcelView {
 

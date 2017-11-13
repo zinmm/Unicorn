@@ -1,7 +1,9 @@
 package com.zin.unicorn.module.home.activity;
 
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.zin.toolutils.ToastUtils;
 import com.zin.unicorn.R;
@@ -11,6 +13,8 @@ import com.zin.unicorn.module.home.view.HomeView;
 import com.zin.unicorn.widget.ObservableScrollView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.zin.unicorn.widget.ObservableScrollView.SCROLL_UP;
 
@@ -21,6 +25,8 @@ public class HomePageActivity extends BaseMVPActivity<HomeView, HomePresenter> i
 
     @BindView(R.id.observableScrollView)
     ObservableScrollView observableScrollView;
+    @BindView(R.id.all_package)
+    TextView allPackage;
     private ActionBar actionBar;
     @BindView(R.id.checkbox)
     CheckBox checkBox;
@@ -79,5 +85,15 @@ public class HomePageActivity extends BaseMVPActivity<HomeView, HomePresenter> i
     @Override
     protected int rootLayoutId() {
         return R.layout.activity_home;
+    }
+
+    @OnClick(R.id.all_package)
+    public void onViewClicked() {
+        mPresenter.startAllApp();
+    }
+
+    @Override
+    public TextView allPackage() {
+        return allPackage;
     }
 }

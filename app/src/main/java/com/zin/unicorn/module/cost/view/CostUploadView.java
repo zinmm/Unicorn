@@ -4,7 +4,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * Created by zhujinming on 2017/7/21.
+ * Created by ZhuJinMing on 2017/7/21.
  */
 public interface CostUploadView {
 

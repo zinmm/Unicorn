@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by zhujinming on 2017/7/21.
+ * Created by ZhuJinMing on 2017/7/21.
  */
 public class CostActivity extends BaseMVPActivity<CostView, CostPresenter> implements CostView {
 

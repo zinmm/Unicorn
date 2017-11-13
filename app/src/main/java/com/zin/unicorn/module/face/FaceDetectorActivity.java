@@ -9,7 +9,7 @@ import com.zin.unicorn.widget.FaceView;
 import butterknife.BindView;
 
 /**
- * Created by zhujinming on 2017/8/10.
+ * Created by ZhuJinMing on 2017/8/10.
  */
 
 public class FaceDetectorActivity extends

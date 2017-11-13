@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by zhujinming on 17/5/5.
+ * Created by ZhuJinMing on 17/5/5.
  */
 
 public interface ProfileView {

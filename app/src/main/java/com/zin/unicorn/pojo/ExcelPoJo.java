@@ -3,7 +3,7 @@ package com.zin.unicorn.pojo;
 import java.io.Serializable;
 
 /**
- * Created by zhujinming on 2017/7/24.
+ * Created by ZhuJinMing on 2017/7/24.
  */
 public class ExcelPoJo implements Serializable {
 

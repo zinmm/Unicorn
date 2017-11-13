@@ -28,42 +28,6 @@ public class BaseApplication extends Application {
         DensityUtils.setAppContext(this);
 
         initHotfix();
-
-        registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-            @Override
-            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                ContextUtil.getInstance().setContext(activity); // Must!! First call this method.
-            }
-
-            @Override
-            public void onActivityStarted(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivityResumed(Activity activity) {
-            }
-
-            @Override
-            public void onActivityPaused(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivityStopped(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-            }
-
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-                ContextUtil.getInstance().onDestroyContext();
-            }
-        });
     }
 
     private void initHotfix() {
@@ -109,8 +73,8 @@ public class BaseApplication extends Application {
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                ContextUtil.getInstance().setContext(activity); // Must!! First call this method.
 
+                ContextUtil.getInstance().setContext(activity); // Must!! First call this method.
             }
 
             @Override

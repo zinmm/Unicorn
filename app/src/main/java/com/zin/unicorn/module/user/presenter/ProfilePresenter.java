@@ -31,7 +31,7 @@ import static com.zin.unicorn.module.user.activity.ProfileActivity.REQUEST_CODE_
 import static com.zin.unicorn.module.user.activity.ProfileActivity.SUCCESS;
 
 /**
- * Created by zhujinming on 17/5/5.
+ * Created by ZhuJinMing on 17/5/5.
  */
 
 public class ProfilePresenter extends BasePresenter<ProfileView> {
