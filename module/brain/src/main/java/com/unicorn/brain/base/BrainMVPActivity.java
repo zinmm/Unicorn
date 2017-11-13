@@ -1,7 +1,8 @@
-package com.unicorn.brain;
+package com.unicorn.brain.base;
 
 /**
- * Created by zhujinming on 2017/7/23.
+ * Base MVP Activity
+ * Created by ZhuJinMing on 2017/7/23.
  */
 public abstract class BrainMVPActivity<V, P extends BrainPresenter<V>>
         extends BrainActivity {

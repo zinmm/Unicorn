@@ -1,15 +1,15 @@
-package com.unicorn.brain;
+package com.unicorn.brain.base;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.os.Bundle;
 
-import com.zin.toolutils.ContextUtil;
-import com.zin.toolutils.density.DensityUtils;
+import com.unicorn.brain.util.ContextUtil;
+import com.unicorn.brain.util.density.DensityUtils;
 
 /**
- * Created by zhujinming on 2017/7/23.
+ * Base Application
+ * Created by ZhuJinMing on 2017/7/23.
  */
 public class BrainApplication extends Application {
 

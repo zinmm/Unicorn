@@ -1,4 +1,4 @@
-package com.unicorn.brain;
+package com.unicorn.brain.base;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by zhujinming on 2017/7/23.
+ * Base Fragment
+ * Created by ZhuJinMing on 2017/7/23.
  */
 public class BrainFragment extends Fragment {
 

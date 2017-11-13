@@ -1,4 +1,4 @@
-package com.unicorn.brain;
+package com.unicorn.brain.base;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -10,6 +10,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewStub;
@@ -19,17 +20,16 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-import com.zin.toolutils.LogOrToastUtil;
-import com.zin.toolutils.network.NetWorkChangeBroadcastReceiver;
-import com.zin.toolutils.network.NetworkUtil;
-
-import butterknife.ButterKnife;
+import com.unicorn.brain.R;
+import com.unicorn.brain.ShowTabBarListener;
+import com.unicorn.brain.util.network.NetWorkChangeBroadcastReceiver;
+import com.unicorn.brain.util.network.NetworkUtil;
 
 /**
- * Created by zhujinming on 2017/7/23.
+ * Base Activity
+ * Created by ZhuJinMing on 2017/7/23.
  */
-public abstract class BrainActivity extends RxAppCompatActivity {
+public abstract class BrainActivity extends AppCompatActivity {
 
     protected Context mContext;
     protected Context mApplication;
@@ -55,8 +55,6 @@ public abstract class BrainActivity extends RxAppCompatActivity {
         }
 
         setContentView(getRootView());
-
-        ButterKnife.bind(this);
 
         initNetWorkChange();
 
@@ -92,11 +90,11 @@ public abstract class BrainActivity extends RxAppCompatActivity {
     public void showSnackbar(String content, boolean... isError) {
         Snackbar snackbar = Snackbar.make(findViewById(R.id.fl_root), content, Snackbar.LENGTH_SHORT);
 
-        Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
-        TextView snackbarTextView = (TextView) snackbarLayout.findViewById(R.id.snackbar_text);
+        Snackbar.SnackbarLayout snackBarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
+        TextView snackbarTextView = snackBarLayout.findViewById(R.id.snackbar_text);
 
         if (isError.length != 0 && isError[0]) {
-            snackbarLayout.setBackgroundColor(0xfff44336);
+            snackBarLayout.setBackgroundColor(0xfff44336);
         }
         snackbarTextView.setGravity(Gravity.CENTER_HORIZONTAL);
 
@@ -153,7 +151,6 @@ public abstract class BrainActivity extends RxAppCompatActivity {
     }
 
     public void isConnected(boolean isConnected) {
-        LogOrToastUtil.getInstance().perform(this, isConnected + "");
         this.isConnected = isConnected;
     }
 

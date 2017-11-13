@@ -1,4 +1,4 @@
-package com.unicorn.brain;
+package com.unicorn.brain.base;
 
 import android.content.Context;
 
@@ -6,13 +6,14 @@ import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
 /**
- * Created by zhujinming on 2017/7/23.
+ * Base Presenter
+ * Created by ZhuJinMing on 2017/7/23.
  */
 public abstract class BrainPresenter<V> {
 
     protected BrainActivity mActivity;
     protected Context mContext;
-    protected Context mAppcationContext;
+    protected Context mApplicationContext;
 
     private Reference<V> mViewRef;
 
@@ -22,7 +23,7 @@ public abstract class BrainPresenter<V> {
 
     protected void attachContext(Context mContext) {
         this.mContext = mContext;
-        this.mAppcationContext = mContext.getApplicationContext();
+        this.mApplicationContext = mContext.getApplicationContext();
         this.mActivity = (BrainActivity) mContext;
     }
 
@@ -43,7 +44,7 @@ public abstract class BrainPresenter<V> {
 
     void detachContext() {
         mContext = null;
-        mAppcationContext = null;
+        mApplicationContext = null;
         mActivity = null;
     }
 }

@@ -3,7 +3,7 @@ package com.unicorn.brain;
 import android.widget.LinearLayout;
 
 /**
- * Created by zhujinming on 2017/7/23.
+ * Created by ZhuJinMing on 2017/7/23.
  */
 public interface ShowTabBarListener {
     /**

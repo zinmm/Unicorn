@@ -7,7 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.zin.toolutils.density.DensityUtils;
+import com.unicorn.brain.base.BrainActivity;
+import com.unicorn.brain.util.density.DensityUtils;
 
 import java.lang.ref.WeakReference;
 
