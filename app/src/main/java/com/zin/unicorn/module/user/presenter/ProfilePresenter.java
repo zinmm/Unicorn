@@ -104,7 +104,7 @@ public class ProfilePresenter extends BasePresenter<ProfileView> {
     public void uploadAvatar(Intent data) {
         Bundle extras = data.getExtras();
         Bitmap avatar = extras.getParcelable("data");
-        String avatarFilePath = mAppcationContext.getExternalCacheDir() + "/" + "avatar.jpg";
+        String avatarFilePath = mApplicationContext.getExternalCacheDir() + "/" + "avatar.jpg";
 
         if (avatar != null) {
 

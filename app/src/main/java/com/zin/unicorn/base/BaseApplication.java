@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
+import com.unicorn.brain.base.BrainApplication;
 import com.zin.toolutils.ContextUtil;
 import com.zin.toolutils.density.DensityUtils;
 import com.zin.toolutils.log.LogcatUtil;
@@ -17,7 +18,7 @@ import static com.taobao.sophix.PatchStatus.CODE_REQ_START;
 /**
  * Created by zinmm on 12/14/16.
  */
-public class BaseApplication extends Application {
+public class BaseApplication extends BrainApplication {
 
     @Override
     public void onCreate() {

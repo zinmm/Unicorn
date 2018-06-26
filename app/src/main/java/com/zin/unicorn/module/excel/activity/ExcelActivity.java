@@ -7,6 +7,8 @@ import com.zin.unicorn.base.BaseMVPActivity;
 import com.zin.unicorn.module.excel.presenter.ExcelPresenter;
 import com.zin.unicorn.module.excel.view.ExcelView;
 
+import java.util.List;
+
 import butterknife.BindView;
 
 /**
@@ -16,6 +18,8 @@ public class ExcelActivity extends BaseMVPActivity<ExcelView, ExcelPresenter> im
 
     @BindView(R.id.listView)
     ListView listView;
+
+    List<String> nullx;
 
     @Override
     protected ExcelPresenter createPresenter() {
@@ -30,9 +34,9 @@ public class ExcelActivity extends BaseMVPActivity<ExcelView, ExcelPresenter> im
     @Override
     protected void initData() {
         mPresenter.initListView();
-        mPresenter.requestGetExcel();
+//        mPresenter.requestGetExcel();
+        mPresenter.requestGetDatas();
     }
-
 
     @Override
     public ListView getListView() {

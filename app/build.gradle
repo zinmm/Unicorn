@@ -5,7 +5,6 @@ properties.load(project.rootProject.file("local.properties").newDataInputStream(
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
 
@@ -37,6 +36,7 @@ android {
     android {
         useLibrary "org.apache.http.legacy"
     }
+    buildToolsVersion '27.0.3'
 }
 
 repositories {
@@ -53,7 +53,7 @@ repositories {
 
 ext {
     okhttpVersion = "3.7.0"
-    supportLibVersion = "27.0.0"
+    supportLibVersion = "27.1.1"
     rxVersion = "2.0.1"
     rxPreferencesVersion = "2.0.0-RC1"
     retrofit2Version = "2.2.0"
@@ -64,50 +64,75 @@ ext {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile "junit:junit:${junitVersion}"
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation "junit:junit:${junitVersion}"
+
     // okHttp 网络框架
-    testCompile "com.squareup.okhttp3:mockwebserver:${okhttpVersion}"
+    testImplementation "com.squareup.okhttp3:mockwebserver:${okhttpVersion}"
+
     // v7 包
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    api "com.android.support:appcompat-v7:${supportLibVersion}"
+
     // design 自带
-    compile "com.android.support:design:${supportLibVersion}"
+    api "com.android.support:design:${supportLibVersion}"
+
     // rx java
-    compile "io.reactivex.rxjava2:rxjava:${rxVersion}"
+    api "io.reactivex.rxjava2:rxjava:${rxVersion}"
+
     // rx Android
-    compile "io.reactivex.rxjava2:rxandroid:${rxVersion}"
+    api "io.reactivex.rxjava2:rxandroid:${rxVersion}"
+
     // rx adapter
-    //    compile "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
+
+    //    api "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
+
     // retrofit 网络框架
-    compile "com.squareup.retrofit2:retrofit:${retrofit2Version}"
+    api "com.squareup.retrofit2:retrofit:${retrofit2Version}"
+
+    // rx lifecycle
+
+    //    api "com.trello.rxlifecycle2:rxlifecycle:${retrofit2Version}"
+
     // g son 解析 json
-    compile "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
+    api "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
+
     // rx preferences 存文件
-    compile "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
+    api "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
+
     // google 推出的 gson
-    compile "com.google.code.gson:gson:${gsonVersion}"
+    api "com.google.code.gson:gson:${gsonVersion}"
+
     // event bus callback
-    compile "org.greenrobot:eventbus:${eventBusVersion}"
+    api "org.greenrobot:eventbus:${eventBusVersion}"
+
     // butter knife
-    compile "com.jakewharton:butterknife:${butterknifeVersion}"
+    api "com.jakewharton:butterknife:${butterknifeVersion}"
+
     // glide 图片加载框架
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    api 'com.github.bumptech.glide:glide:3.7.0'
 
     // 阿里热修复
-    compile 'com.aliyun.ams:alicloud-android-hotfix:3.0.5'
-    compile('com.aliyun.ams:alicloud-android-hotfix:3.0.5') {
+    api 'com.aliyun.ams:alicloud-android-hotfix:3.0.5'
+    api('com.aliyun.ams:alicloud-android-hotfix:3.0.5') {
         exclude(module: 'alicloud-android-utdid')
     }
 
     // 检查栈顶应用的
-//    compile project(path: ':module:runningapplication')
+//    api project(path: ':runningapplication')
+
     // 侧滑菜单
-//    compile project(path: ':module:sideslip')
-//    // 工具类
-//    compile project(path: ':module:toolutils')
+//    api project(path: ':module:sideslip')
+
+    // 工具类
+    api project(path: ':toolutils')
+//
     // system control
-    compile project(path: ':module:brain')
-//    compile 'com.github.zinmm:brain:v1.0'
+    api project(path: ':brain')
+
+    // 网络模块
+//    api project(path: ':module:network')
+
+//    api 'com.github.zinmm:brain:v1.0'
 
     // butter knife
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"

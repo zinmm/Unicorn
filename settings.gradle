@@ -1,3 +1,16 @@
 include ':app'
-include ':module:brain'
-//include ':module:toolutils', ':module:runningapplication', ':module:sideslip', ':module:brain'
+
+include ':toolutils'
+project(':toolutils').projectDir = new File("modules/toolutils")
+
+include ':runningapplication'
+project(':runningapplication').projectDir = new File("modules/runningapplication")
+
+include ':sideslip'
+project(':sideslip').projectDir = new File("modules/sideslip")
+
+include ':brain'
+project(':brain').projectDir = new File("modules/brain")
+
+include ':network'
+project(':network').projectDir = new File("modules/network")

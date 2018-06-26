@@ -1,9 +1,10 @@
 package com.zin.unicorn.base;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by ZhuJinMing on 17/5/4.
  */
-
 public abstract class BaseMVPActivity<V, T extends BasePresenter<V>>
         extends BaseActivity {
 
@@ -11,6 +12,7 @@ public abstract class BaseMVPActivity<V, T extends BasePresenter<V>>
 
     @Override
     public void init() {
+        ButterKnife.bind(this);
 
         if (createPresenter() != null) {
             mPresenter = createPresenter();

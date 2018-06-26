@@ -1,6 +1,5 @@
 package com.zin.unicorn.module.home.activity;
 
-import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -12,8 +11,9 @@ import com.zin.unicorn.module.home.presenter.HomePresenter;
 import com.zin.unicorn.module.home.view.HomeView;
 import com.zin.unicorn.widget.ObservableScrollView;
 
+import java.io.IOException;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.zin.unicorn.widget.ObservableScrollView.SCROLL_UP;
@@ -75,6 +75,17 @@ public class HomePageActivity extends BaseMVPActivity<HomeView, HomePresenter> i
         checkBox.setChecked(true);
         observableScrollView.setClickable(false);
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> ToastUtils.showToast(mContext, isChecked + ""));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        try {
+            mPresenter.switchAPP();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

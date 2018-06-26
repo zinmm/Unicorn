@@ -3,6 +3,9 @@ package com.zin.unicorn.module.excel.presenter;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -13,14 +16,18 @@ import com.zin.unicorn.module.excel.adapter.ExcelAdapter;
 import com.zin.unicorn.module.excel.view.ExcelView;
 import com.zin.unicorn.network.HttpManager;
 import com.zin.unicorn.pojo.ExcelPoJo;
+import com.zin.unicorn.pojo.ad.AdPoJo;
 import com.zin.unicorn.util.FileMimeUtil;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Calendar;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -29,12 +36,81 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.pm.PackageManager.GET_ACTIVITIES;
+
 /**
  * Created by ZhuJinMing on 2017/7/11.
  */
 public class ExcelPresenter extends BasePresenter<ExcelView> {
 
     ExcelAdapter excelAdapter;
+
+    public void requestGetDatas() {
+
+        mActivity.showProgressBar(true);
+
+        new AsyncTask<Void, Long, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                String baseUrl = "http://engine.yuyiya.com/";
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(baseUrl)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                HttpManager movieService = retrofit.create(HttpManager.class);
+
+                AdPoJo adPoJo = new AdPoJo("00329FC8-07EB-4096-B7DE-3CFB620EC83C",
+                        "8", "1.0.0", "39.9", "116. 3", "com.sina.weibo, com.eju.shoubo, com.lolo",
+                        "iOS", "男", "18-24", "大学本科", "屌丝", "未婚",
+                        "单身社交", "高", "高", "游戏类", "微博9:00", null,
+                        null, "游戏", null, null, "4G", "高", "29",
+                        null, "8", "逆袭", "住宅区", "否", "否",
+                        "搬家", "否");
+
+                Call<String> call = movieService.getData("00329FC8-07EB-4096-B7DE-3CFB620EC83C",
+                        "8", "39.9", "116. 3", "com.sina.weibo, com.eju.shoubo, com.lolo",
+                        "iOS", "男", "18-24", "大学本科", "屌丝", "未婚",
+                        "单身社交", "高", "高", "游戏类", "微博9:00", null,
+                        null, "游戏", null, null, "4G", "高", "29",
+                        null, "8", "逆袭", "住宅区", "否", "否",
+                        "搬家", "否");
+
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+
+                        mActivity.hideProgressBar();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String str = response.body();
+
+                                mActivity.showSnackbar(str);
+                            }
+                        }).start();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mActivity.hideProgressBar();
+                                mActivity.showSnackbar("network error", true);
+                            }
+                        });
+                    }
+                });
+                return null;
+            }
+        }.execute();
+    }
+
+
 
     public void requestGetExcel() {
 
@@ -97,7 +173,7 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
 
         ExcelPoJo excelPoJo = new ExcelPoJo();
         try {
-            File futureStudioIconFile = new File(mAppcationContext.getExternalFilesDir(null) + File.separator + "action.xls");
+            File futureStudioIconFile = new File(mApplicationContext.getExternalFilesDir(null) + File.separator + "action.xls");
 
             InputStream inputStream = null;
             OutputStream outputStream = null;
@@ -105,7 +181,7 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    ClipboardManager cm = (ClipboardManager) mAppcationContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipboardManager cm = (ClipboardManager) mApplicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
                     cm.setText(futureStudioIconFile.getPath());
                 }
             });
@@ -156,7 +232,7 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
                             StrictMode.setVmPolicy(builder.build());
                         }
 
-                        ClipboardManager cm = (ClipboardManager) mAppcationContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipboardManager cm = (ClipboardManager) mApplicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
                         Intent intent = new Intent("android.intent.action.VIEW");
                         intent.addCategory("android.intent.category.DEFAULT");
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -194,4 +270,6 @@ public class ExcelPresenter extends BasePresenter<ExcelView> {
         excelAdapter = new ExcelAdapter(mContext);
         getView().getListView().setAdapter(excelAdapter);
     }
+
+
 }

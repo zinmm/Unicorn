@@ -1,7 +1,6 @@
 package com.zin.unicorn.module.killapp.presenter;
 
 import android.app.ActivityManager;
-import android.app.KeyguardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +33,7 @@ public class KillApplicationPresenter extends BasePresenter<KillApplicationView>
     public void initAllApplicationListView() {
 
 
-        List<ApplicationInfo> applicationInfos = queryFilterAppInfo(mAppcationContext);
+        List<ApplicationInfo> applicationInfos = queryFilterAppInfo(mApplicationContext);
 
         MyAdapter myAdapter = new MyAdapter(mContext, applicationInfos);
         getView().lvAllApplication().setAdapter(myAdapter);

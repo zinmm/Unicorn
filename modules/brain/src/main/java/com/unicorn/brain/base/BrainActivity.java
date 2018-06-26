@@ -10,7 +10,6 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewStub;
@@ -20,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.unicorn.brain.R;
 import com.unicorn.brain.ShowTabBarListener;
 import com.unicorn.brain.util.network.NetWorkChangeBroadcastReceiver;
@@ -29,7 +29,7 @@ import com.unicorn.brain.util.network.NetworkUtil;
  * Base Activity
  * Created by ZhuJinMing on 2017/7/23.
  */
-public abstract class BrainActivity extends AppCompatActivity {
+public abstract class BrainActivity extends RxAppCompatActivity {
 
     protected Context mContext;
     protected Context mApplication;

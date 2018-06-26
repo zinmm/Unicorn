@@ -16,7 +16,7 @@ public abstract class BasePresenter<V> extends BrainPresenter<V> {
 
     protected BaseActivity mActivity;
     protected Context mContext;
-    protected Context mAppcationContext;
+    protected Context mApplicationContext;
 
     private Reference<V> mViewRef;
 
@@ -26,7 +26,7 @@ public abstract class BasePresenter<V> extends BrainPresenter<V> {
 
     protected void attachContext(Context mContext) {
         this.mContext = mContext;
-        this.mAppcationContext = mContext.getApplicationContext();
+        this.mApplicationContext = mContext.getApplicationContext();
         this.mActivity = (BaseActivity) mContext;
     }
 
@@ -47,7 +47,7 @@ public abstract class BasePresenter<V> extends BrainPresenter<V> {
 
     void detachContext() {
         mContext = null;
-        mAppcationContext = null;
+        mApplicationContext = null;
         mActivity = null;
     }
 
