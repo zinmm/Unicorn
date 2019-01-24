@@ -1,14 +1,9 @@
 package com.zin.unicorn.module;
 
-import com.zin.toolutils.gson.GsonUtils;
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseActivity;
 import com.zin.unicorn.base.Navigator;
-import com.zin.unicorn.pojo.ad.ActivityPoJo;
-import com.zin.unicorn.pojo.ad.NoticePoJo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -54,6 +49,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getRootLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.splash_activity;
     }
 }
