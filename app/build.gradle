@@ -132,7 +132,10 @@ dependencies {
     api project(path: ':brain')
 
     // 网络模块
-//    api project(path: ':module:network')
+    api project(path: ':network')
+
+    // 网络模块
+//    compile project(path: ':network')
 
 //    api 'com.github.zinmm:brain:v1.0'
 

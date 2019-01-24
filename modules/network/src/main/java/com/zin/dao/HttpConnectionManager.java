@@ -32,6 +32,11 @@ import static com.zin.dao.HttpConstant.METHOD_GET;
 import static com.zin.dao.HttpConstant.METHOD_POST;
 import static com.zin.dao.HttpConstant.OTHER_ERROR;
 
+/**
+ * Http connection manager.
+ *
+ * Created by ZhuJinMing on 14/3/20.
+ */
 public class HttpConnectionManager {
 
     private TrustManager[] mTrustAllCerts = null;
@@ -52,28 +57,32 @@ public class HttpConnectionManager {
 
     public void connection(int what, String urlStr, String method, Map<String, Object> objectMap,
                            HttpResultListener<String> httpResultListener) {
-        new Thread(() -> connectionRequest(what, urlStr, method, objectMap, httpResultListener)).start();
+        new Thread(() ->
+                connectionRequest(what, urlStr, method, objectMap, httpResultListener)).start();
     }
 
     /**
      * 创建连接分发结果
-     *
+     *`
      * @param what               唯一标示
      * @param urlStr             接口
      * @param method             GET POST
      * @param objectMap          parameter
      * @param httpResultListener 唯一回调
      */
-    private void connectionRequest(int what, String urlStr, String method, Map<String, Object> objectMap,
+    private void connectionRequest(int what, String urlStr, String method,
+                                   Map<String, Object> objectMap,
                                    HttpResultListener<String> httpResultListener) {
 
         if (TextUtils.isEmpty(urlStr)) {
-            Log.e("Network Error: ", "code: 704, urlStr is error! to terminate execution.");
+            Log.e("Network Error: ",
+                    "code: 704, urlStr is error! to terminate execution.");
             return;
         }
 
         if (TextUtils.isEmpty(method)) {
-            Log.e("Network Error: ", "code: 706, method is error, have automatic conversion POST.");
+            Log.e("Network Error: ",
+                    "code: 706, method is error, have automatic conversion POST.");
             method = METHOD_POST;
         }
 
@@ -135,10 +144,10 @@ public class HttpConnectionManager {
             boolean useHttps = urlStr.startsWith("https");
 
             if (useHttps) {
-                HttpsURLConnection https = (HttpsURLConnection) httpURLConnection;
-                trustAllHosts(https);
-                https.getHostnameVerifier();
-                https.setHostnameVerifier(getHostnameVerifier());
+                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
+                trustAllHosts(httpsURLConnection);
+                httpsURLConnection.getHostnameVerifier();
+                httpsURLConnection.setHostnameVerifier(getHostnameVerifier());
             }
 
             httpURLConnection.setRequestMethod(method);
@@ -155,7 +164,8 @@ public class HttpConnectionManager {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setUseCaches(false);
 
-                httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded");
+                httpURLConnection.setRequestProperty(
+                        "Content-type", "application/x-www-form-urlencoded");
 
                 JSONObject jsonObject = new JSONObject();
                 for (Map.Entry<String, Object> parameters : objectMap.entrySet()) {
@@ -167,7 +177,8 @@ public class HttpConnectionManager {
                 }
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
-                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                DataOutputStream dataOutputStream = new DataOutputStream(
+                        httpURLConnection.getOutputStream());
                 dataOutputStream.writeBytes(jsonObject.toString());
                 dataOutputStream.flush();
                 outputStream.flush();
@@ -210,7 +221,8 @@ public class HttpConnectionManager {
                     is.close();
                 }
             } catch (IOException ignored) {
-                failureCallBack(httpResultListener, what, urlStr, OTHER_ERROR, ignored.getMessage(), ignored);
+                failureCallBack(httpResultListener, what, urlStr, OTHER_ERROR,
+                        ignored.getMessage(), ignored);
             }
         }
     }
@@ -308,16 +320,16 @@ public class HttpConnectionManager {
     /**
      * 信任所有
      *
-     * @param connection HttpsURLConnection
+     * @param httpsURLConnection HttpsURLConnection
      * @return SSLSocketFactory
      */
-    private SSLSocketFactory trustAllHosts(HttpsURLConnection connection) {
-        SSLSocketFactory oldFactory = connection.getSSLSocketFactory();
+    private SSLSocketFactory trustAllHosts(HttpsURLConnection httpsURLConnection) {
+        SSLSocketFactory oldFactory = httpsURLConnection.getSSLSocketFactory();
         try {
             SSLContext sc = SSLContext.getInstance("TLS");
             sc.init(null, getTrustAllCerts(), new java.security.SecureRandom());
             SSLSocketFactory newFactory = sc.getSocketFactory();
-            connection.setSSLSocketFactory(newFactory);
+            httpsURLConnection.setSSLSocketFactory(newFactory);
         } catch (Exception e) {
             e.printStackTrace();
         }

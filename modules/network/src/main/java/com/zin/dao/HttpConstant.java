@@ -1,10 +1,12 @@
 package com.zin.dao;
 
 /**
- * Create by ZhuJinMing on 2019/01/21
+ * Http connection constant.
+ *
+ * Create by ZhuJinMing on 14/3/19
  */
-public class HttpConstant {
-    public final static String METHOD_GET = "GET";
-    public final static String METHOD_POST = "POST";
-    public final static int OTHER_ERROR = 88101;
+class HttpConstant {
+    final static String METHOD_GET = "GET";
+    final static String METHOD_POST = "POST";
+    final static int OTHER_ERROR = 88101;
 }

@@ -12,9 +12,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by zhujinming on 2018/4/12.
+ * http downloader file
+ *
+ * Created by ZhuJinMing on 2018/4/12.
  */
 public class HttpDownloader {
+
+    private StringBuffer strBuffer = new StringBuffer();
+    private BufferedReader bufferReader = null;
 
     private static HttpDownloader instance;
 
@@ -29,16 +34,12 @@ public class HttpDownloader {
         return instance;
     }
 
-
-    private String line = null;
-    private StringBuffer strBuffer = new StringBuffer();
-    private BufferedReader bufferReader = null;
-
     //下载小型的文档文件，返回文档的String字符串
     public String downloadFiles(String urlStr) {
         try {
             InputStream inputStream = getInputStreamFromUrl(urlStr);
             bufferReader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
             while ((line = bufferReader.readLine()) != null) {
                 strBuffer.append(line + '\n');
             }
