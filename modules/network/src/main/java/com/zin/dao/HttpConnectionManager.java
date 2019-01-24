@@ -1,4 +1,4 @@
-package com.zin.unicorn.base.dao;
+package com.zin.dao;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -28,9 +28,9 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import static com.zin.toolutils.MyTextUtils.countStr;
-import static com.zin.unicorn.base.dao.HttpConstant.METHOD_GET;
-import static com.zin.unicorn.base.dao.HttpConstant.METHOD_POST;
-import static com.zin.unicorn.base.dao.HttpConstant.OTHER_ERROR;
+import static com.zin.dao.HttpConstant.METHOD_GET;
+import static com.zin.dao.HttpConstant.METHOD_POST;
+import static com.zin.dao.HttpConstant.OTHER_ERROR;
 
 public class HttpConnectionManager {
 

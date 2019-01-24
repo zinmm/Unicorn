@@ -1,4 +1,4 @@
-package com.zin.unicorn.base.dao;
+package com.zin.dao;
 
 public interface HttpResultListener<T> {
 

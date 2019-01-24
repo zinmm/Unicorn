@@ -6,8 +6,8 @@ import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseMVPActivity;
 import com.zin.unicorn.base.LoopViewPager;
 import com.zin.unicorn.base.ShowTabBarListener;
-import com.zin.unicorn.base.dao.HttpConnectionManager;
-import com.zin.unicorn.base.dao.HttpResultListener;
+import com.zin.dao.HttpConnectionManager;
+import com.zin.dao.HttpResultListener;
 import com.zin.unicorn.module.demo.presenter.DemoPresenter;
 import com.zin.unicorn.module.demo.view.DemoView;
 

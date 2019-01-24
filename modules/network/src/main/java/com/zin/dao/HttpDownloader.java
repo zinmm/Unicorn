@@ -1,4 +1,4 @@
-package com.zin.unicorn.base.dao;
+package com.zin.dao;
 
 import com.zin.toolutils.file.FileUtils;
 import com.zin.toolutils.log.LogcatUtil;

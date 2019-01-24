@@ -1,4 +1,4 @@
-package com.zin.unicorn.base.dao;
+package com.zin.dao;
 
 /**
  * Create by ZhuJinMing on 2019/01/21
