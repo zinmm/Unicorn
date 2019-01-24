@@ -20,7 +20,7 @@ public class CostAdapter extends BaseAdapter<CostPoJo> {
 
     @Override
     public RecyclerView.ViewHolder onCreateCommon(ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.item_cost, null);
+        View view = View.inflate(mContext, R.layout.cost_item, null);
         return null;
     }
 

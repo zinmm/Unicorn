@@ -19,7 +19,7 @@ package com.unicorn.brain.util;
 import android.content.Context;
 
 /**
- * context utils
+ * mContext utils
  * Created by zinmm on 5/18/16.
  */
 public class ContextUtil {

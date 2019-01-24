@@ -95,7 +95,7 @@ public class HomePageActivity extends BaseMVPActivity<HomeView, HomePresenter> i
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_home;
+        return R.layout.home_activity;
     }
 
     @OnClick(R.id.all_package)

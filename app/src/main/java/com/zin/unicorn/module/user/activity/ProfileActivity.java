@@ -57,7 +57,7 @@ public class ProfileActivity extends BaseMVPActivity<ProfileView, ProfilePresent
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_profile;
+        return R.layout.profile_activity;
     }
 
     @Override

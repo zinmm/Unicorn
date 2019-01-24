@@ -37,7 +37,7 @@ public class CostUploadActivity extends BaseMVPActivity<CostUploadView, CostUplo
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_cost_upload;
+        return R.layout.cost_upload_activity;
     }
 
     @OnClick(R.id.btn_post)

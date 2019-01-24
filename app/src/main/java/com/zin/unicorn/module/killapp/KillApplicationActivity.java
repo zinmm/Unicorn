@@ -29,7 +29,7 @@ public class KillApplicationActivity extends BaseMVPActivity<KillApplicationView
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_kill_application;
+        return R.layout.kill_application_activity;
     }
 
     @Override

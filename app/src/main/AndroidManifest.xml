@@ -8,6 +8,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
 
     <application
         android:name=".base.BaseApplication"
@@ -18,7 +24,7 @@
         android:theme="@style/UnicornTheme">
 
         <activity
-            android:name=".module.MainActivity"
+            android:name=".module.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/StartAppTheme">
 
@@ -30,8 +36,16 @@
         </activity>
 
         <activity
+            android:name=".module.demo.activity.DemoActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
             android:name="com.zin.unicorn.module.home.activity.HomePageActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".module.chat.activity.ChatActivity"
+            android:theme="@style/UnicornTheme" />
 
         <activity android:name=".module.killapp.KillApplicationActivity" />
 
@@ -49,7 +63,7 @@
 
         <!--</receiver>-->
 
-        <!--<activity android:name="com.zin.ra.nsgam.main.MainActivity"/>-->
+        <!--<activity android:name="com.zin.ra.nsgam.main.SplashActivity"/>-->
 
         <receiver
             android:name=".util.AppChangeBroadcastReceiver"

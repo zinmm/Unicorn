@@ -5,7 +5,6 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,12 +17,11 @@ import com.zin.unicorn.R;
 /**
  * Created by ZhuJinMing on 2017/7/7.
  */
-
 public class WindowUtil {
     private static final String LOG_TAG = "WindowUtils";
     private static View mView = null;
     private static WindowManager mWindowManager = null;
-    private static Context mContext = null;
+    private static Context context = null;
     public static Boolean isShown = false;
 
     /**
@@ -31,7 +29,7 @@ public class WindowUtil {
      *
      * @param context
      */
-    public static void showPopupWindow(final Context context) {
+    public static void showPopupWindow(Context context) {
         if (isShown) {
             Log.i(LOG_TAG, "return cause already shown");
             return;
@@ -39,9 +37,9 @@ public class WindowUtil {
         isShown = true;
         Log.i(LOG_TAG, "showPopupWindow");
         // 获取应用的Context
-        mContext = context.getApplicationContext();
+        context = context.getApplicationContext();
         // 获取WindowManager
-        mWindowManager = (WindowManager) mContext
+        mWindowManager = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
         LinearLayout linearLayout = new LinearLayout(context);
 //        linearLayout.setLayoutParams(new WindowManager.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -85,7 +83,7 @@ public class WindowUtil {
     }
     private static View setUpView(final Context context) {
         Log.i(LOG_TAG, "setUp view");
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_main,
+        View view = LayoutInflater.from(context).inflate(R.layout.splash_activity,
                 null);
 //        Button positiveBtn = (Button) view.findViewById(R.id.positiveBtn);
 //        positiveBtn.setOnClickListener(new View.OnClickListener() {

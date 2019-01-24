@@ -28,7 +28,7 @@ public class ExcelActivity extends BaseMVPActivity<ExcelView, ExcelPresenter> im
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_excel;
+        return R.layout.excel_activity;
     }
 
     @Override

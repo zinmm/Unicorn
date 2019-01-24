@@ -42,7 +42,7 @@ public class AvatarAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (null == convertView) {
-            convertView = mLayoutInflater.inflate(R.layout.item_avatar, parent, false);
+            convertView = mLayoutInflater.inflate(R.layout.avatar_item, parent, false);
         }
         setAvatar((AvatarView) convertView, mAvatars[position]);
         return convertView;

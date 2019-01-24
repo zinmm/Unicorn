@@ -3,7 +3,9 @@ package com.zin.unicorn.base;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
@@ -11,7 +13,7 @@ import com.unicorn.brain.base.BrainApplication;
 import com.zin.toolutils.ContextUtil;
 import com.zin.toolutils.density.DensityUtils;
 import com.zin.toolutils.log.LogcatUtil;
-import com.zin.unicorn.module.MainActivity;
+import com.zin.unicorn.module.SplashActivity;
 
 import static com.taobao.sophix.PatchStatus.CODE_REQ_START;
 
@@ -24,11 +26,24 @@ public class BaseApplication extends BrainApplication {
     public void onCreate() {
         super.onCreate();
 
+        fixAndroidV7Camera();
+
         initContextUtil();
 
         DensityUtils.setAppContext(this);
 
         initHotfix();
+    }
+
+    /**
+     * android 7.0系统解决拍照的问题
+     */
+    private void fixAndroidV7Camera() {
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            builder.detectFileUriExposure();
+        }
     }
 
     private void initHotfix() {
@@ -40,31 +55,31 @@ public class BaseApplication extends BrainApplication {
             appVersion = "1.0.0";
         }
 
-        SophixManager.getInstance().setContext(this)
-                .setAppVersion(appVersion)
-                .setEnableDebug(true)
-                .setPatchLoadStatusStub((mode, code, info, handlePatchVersion) -> {
-
-                    LogcatUtil.getInstance().deBug(info, this);
-                    // 补丁加载回调通知
-                    if (code == PatchStatus.CODE_LOAD_SUCCESS) {
-                        // 表明补丁加载成功
-                    } else if (code == PatchStatus.CODE_LOAD_RELAUNCH) {
-                        // 表明新补丁生效需要重启. 开发者可提示用户或者强制重启;
-                        // 建议: 用户可以监听进入后台事件, 然后应用自杀
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        getApplicationContext().startActivity(intent);
-                        SophixManager.getInstance().killProcessSafely();
-                    } else if (code == PatchStatus.CODE_LOAD_FAIL) {
-                        // 内部引擎异常, 推荐此时清空本地补丁, 防止失败补丁重复加载
-                        SophixManager.getInstance().cleanPatches();
-                    } else if (code == CODE_REQ_START) {
-
-                    } else {
-                        // 其它错误信息, 查看PatchStatus类说明
-                    }
-                }).initialize();
+//        SophixManager.getInstance().setContext(this)
+//                .setAppVersion(appVersion)
+//                .setEnableDebug(true)
+//                .setPatchLoadStatusStub((mode, code, info, handlePatchVersion) -> {
+//
+//                    LogcatUtil.getInstance().deBug(info, this);
+//                    // 补丁加载回调通知
+//                    if (code == PatchStatus.CODE_LOAD_SUCCESS) {
+//                        // 表明补丁加载成功
+//                    } else if (code == PatchStatus.CODE_LOAD_RELAUNCH) {
+//                        // 表明新补丁生效需要重启. 开发者可提示用户或者强制重启;
+//                        // 建议: 用户可以监听进入后台事件, 然后应用自杀
+//                        Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        getApplicationContext().startActivity(intent);
+//                        SophixManager.getInstance().killProcessSafely();
+//                    } else if (code == PatchStatus.CODE_LOAD_FAIL) {
+//                        // 内部引擎异常, 推荐此时清空本地补丁, 防止失败补丁重复加载
+//                        SophixManager.getInstance().cleanPatches();
+//                    } else if (code == CODE_REQ_START) {
+//
+//                    } else {
+//                        // 其它错误信息, 查看PatchStatus类说明
+//                    }
+//                }).initialize();
     }
 
     private void initContextUtil() {

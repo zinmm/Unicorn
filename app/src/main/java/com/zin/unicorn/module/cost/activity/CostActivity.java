@@ -33,7 +33,7 @@ public class CostActivity extends BaseMVPActivity<CostView, CostPresenter> imple
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_cost;
+        return R.layout.cost_activity;
     }
 
     @OnClick(R.id.btn_post)

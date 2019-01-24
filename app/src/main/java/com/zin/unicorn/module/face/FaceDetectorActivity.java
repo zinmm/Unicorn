@@ -31,7 +31,7 @@ public class FaceDetectorActivity extends
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_face;
+        return R.layout.face_activity;
     }
 
 

@@ -18,11 +18,11 @@ import java.util.List;
  */
 public class ExcelAdapter extends BaseAdapter {
 
-    private Context mContext;
+    private Context context;
     private List<ExcelPoJo> excelPoJos;
 
     public ExcelAdapter(Context context) {
-        this.mContext = context;
+        this.context = context;
         this.excelPoJos = new ArrayList<>();
     }
 
@@ -44,7 +44,7 @@ public class ExcelAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LinearLayout linearLayout = new LinearLayout(mContext);
+        LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
 
         ExcelPoJo excelPoJo = excelPoJos.get(position);
@@ -52,13 +52,13 @@ public class ExcelAdapter extends BaseAdapter {
         String fileName = excelPoJo.getFileName();
         String fileSize = excelPoJo.getFileSize();
 
-        TextView createTimetextView = new TextView(mContext);
+        TextView createTimetextView = new TextView(context);
         createTimetextView.setText(createTime);
 
-        TextView fileNametextView = new TextView(mContext);
+        TextView fileNametextView = new TextView(context);
         fileNametextView.setText(fileName);
 
-        TextView fileSizetextView = new TextView(mContext);
+        TextView fileSizetextView = new TextView(context);
         fileSizetextView.setText(fileSize);
 
         linearLayout.addView(createTimetextView);

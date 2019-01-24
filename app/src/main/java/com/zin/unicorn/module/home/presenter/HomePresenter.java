@@ -2,7 +2,6 @@ package com.zin.unicorn.module.home.presenter;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 
 import com.zin.toolutils.gson.GsonUtils;
 import com.zin.unicorn.base.BasePresenter;

@@ -43,14 +43,14 @@ public class KillApplicationPresenter extends BasePresenter<KillApplicationView>
 
     class MyAdapter extends BaseAdapter {
 
-        Context mContext;
+        Context context;
         PackageManager pm;
         List<ApplicationInfo> applicationInfos;
 
         MyAdapter(Context context, List<ApplicationInfo> applicationInfos) {
 
             this.pm = context.getApplicationContext().getPackageManager();
-            this.mContext = context;
+            this.context = context;
             this.applicationInfos = applicationInfos;
         }
 
@@ -77,7 +77,7 @@ public class KillApplicationPresenter extends BasePresenter<KillApplicationView>
 
                 viewHolder = new ViewHolder();
 
-                view = View.inflate(mContext, R.layout.item_application, null);
+                view = View.inflate(context, R.layout.application_item, null);
                 viewHolder.iconImageView = view.findViewById(R.id.iv_app_icon);
                 viewHolder.appNameTextView = view.findViewById(R.id.tv_app_name);
                 viewHolder.appIdTextView = view.findViewById(R.id.tv_app_id);
@@ -105,7 +105,7 @@ public class KillApplicationPresenter extends BasePresenter<KillApplicationView>
             viewHolder.iconImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    getRunningServiceInfo(mContext, packageName);
+                    getRunningServiceInfo(context, packageName);
                 }
             });
 
@@ -131,7 +131,7 @@ public class KillApplicationPresenter extends BasePresenter<KillApplicationView>
             // 通过包名获取此APP详细信息，包括Activities、services、versioncode、name等等
             PackageInfo packageinfo = null;
             try {
-                packageinfo = mContext.getApplicationContext().getPackageManager().getPackageInfo(packagename, 0);
+                packageinfo = context.getApplicationContext().getPackageManager().getPackageInfo(packagename, 0);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
@@ -145,7 +145,7 @@ public class KillApplicationPresenter extends BasePresenter<KillApplicationView>
             resolveIntent.setPackage(packageinfo.packageName);
 
             // 通过getPackageManager()的queryIntentActivities方法遍历
-            List<ResolveInfo> resolveinfoList = mContext.getApplicationContext().getPackageManager()
+            List<ResolveInfo> resolveinfoList = context.getApplicationContext().getPackageManager()
                     .queryIntentActivities(resolveIntent, 0);
 
             ResolveInfo resolveinfo = resolveinfoList.iterator().next();

@@ -43,4 +43,14 @@ public class ShellPojo implements Serializable {
     public void setStyle(int style) {
         this.style = style;
     }
+
+    @Override
+    public String toString() {
+        return "ShellPojo{" +
+                "size=" + size +
+                ", force=" + force +
+                ", kind=" + kind +
+                ", style=" + style +
+                '}';
+    }
 }

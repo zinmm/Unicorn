@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 public abstract class BrainPresenter<V> {
 
     protected BrainActivity mActivity;
-    protected Context mContext;
+    protected Context context;
     protected Context mApplicationContext;
 
     private Reference<V> mViewRef;
@@ -21,10 +21,10 @@ public abstract class BrainPresenter<V> {
         mViewRef = new WeakReference<>(view);
     }
 
-    protected void attachContext(Context mContext) {
-        this.mContext = mContext;
-        this.mApplicationContext = mContext.getApplicationContext();
-        this.mActivity = (BrainActivity) mContext;
+    protected void attachContext(Context context) {
+        this.context = context;
+        this.mApplicationContext = context.getApplicationContext();
+        this.mActivity = (BrainActivity) context;
     }
 
     protected V getView() {
@@ -43,7 +43,7 @@ public abstract class BrainPresenter<V> {
     }
 
     void detachContext() {
-        mContext = null;
+        context = null;
         mApplicationContext = null;
         mActivity = null;
     }

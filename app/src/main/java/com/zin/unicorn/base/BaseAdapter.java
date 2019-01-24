@@ -39,8 +39,8 @@ public abstract class BaseAdapter<Z> extends RecyclerView.Adapter<RecyclerView.V
     public Context mContext;
     private List<Z> mData;
 
-    public BaseAdapter(Context context) {
-        this.mContext = context;
+    public BaseAdapter(Context mContext) {
+        this.mContext = mContext;
         this.mData = new ArrayList<>();
     }
 

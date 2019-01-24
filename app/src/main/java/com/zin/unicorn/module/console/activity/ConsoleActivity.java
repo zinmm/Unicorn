@@ -93,7 +93,7 @@ public class ConsoleActivity extends
 
     @Override
     protected int rootLayoutId() {
-        return R.layout.activity_console;
+        return R.layout.console_activity;
     }
 
     @Override

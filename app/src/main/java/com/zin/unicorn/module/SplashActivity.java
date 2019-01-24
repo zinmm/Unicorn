@@ -1,17 +1,19 @@
 package com.zin.unicorn.module;
 
+import android.annotation.SuppressLint;
+
 import com.zin.unicorn.R;
 import com.zin.unicorn.base.BaseActivity;
 import com.zin.unicorn.base.Navigator;
 
-import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-public class MainActivity extends BaseActivity {
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
-    private final int LOAD_HOME_TIME = 1500;
+public class SplashActivity extends BaseActivity {
+
+    private final static int LOAD_HOME_TIME = 1500;
 
     @Override
     public void init() {
@@ -37,12 +39,13 @@ public class MainActivity extends BaseActivity {
         loadHome();
     }
 
+    @SuppressLint("CheckResult")
     private void loadHome() {
-        Observable.timer(LOAD_HOME_TIME, TimeUnit.MILLISECONDS)
+        Observable.timer(LOAD_HOME_TIME, MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(bindToLifecycle())
                 .subscribe(aLong -> {
-                    Navigator.INSTANCE.navigateToHome(mContext);
+                    Navigator.INSTANCE.navigateToDemo(mContext);
                     finish();
                 });
     }

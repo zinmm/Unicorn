@@ -18,14 +18,14 @@ import java.lang.ref.WeakReference;
 public class BrainTopBarView {
 
     /**
-     * @param mContext
+     * @param context
      * @param text
      * @param linearLayout
      * @return TextView
      */
-    public static TextView contentTextView(Context mContext, String text, LinearLayout linearLayout) {
+    public static TextView contentTextView(Context context, String text, LinearLayout linearLayout) {
 
-        WeakReference<Context> contextWeakReference = new WeakReference<>(mContext);
+        WeakReference<Context> contextWeakReference = new WeakReference<>(context);
 
         int textColorResources = contextWeakReference.get().getApplicationContext().getResources().getColor(R.color.black);
 
@@ -42,14 +42,14 @@ public class BrainTopBarView {
     /**
      * default textView
      *
-     * @param mContext        context
+     * @param context        mContext
      * @param stringResources string resource
      * @param linearLayout
      * @return TextView
      */
-    public static TextView contentTextView(Context mContext, int stringResources, LinearLayout linearLayout) {
+    public static TextView contentTextView(Context context, int stringResources, LinearLayout linearLayout) {
 
-        WeakReference<Context> contextWeakReference = new WeakReference<>(mContext);
+        WeakReference<Context> contextWeakReference = new WeakReference<>(context);
 
         String content = contextWeakReference.get().getApplicationContext().getResources().getString(stringResources);
         int textColorResources = contextWeakReference.get().getApplicationContext().getResources().getColor(R.color.black);
@@ -67,15 +67,15 @@ public class BrainTopBarView {
     /**
      * default back button
      *
-     * @param mContext     context
+     * @param context     mContext
      * @param linearLayout
      * @return ImageView
      */
-    public static ImageView backImageView(Context mContext, LinearLayout linearLayout) {
+    public static ImageView backImageView(Context context, LinearLayout linearLayout) {
 
         int dip15 = DensityUtils.dip2px(15);
 
-        final WeakReference<Context> contextWeakReference = new WeakReference<>(mContext);
+        final WeakReference<Context> contextWeakReference = new WeakReference<>(context);
         final ImageView backImageView = new ImageView(contextWeakReference.get());
 
         backImageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -116,16 +116,16 @@ public class BrainTopBarView {
     /**
      * default image
      *
-     * @param mContext     context
+     * @param context     mContext
      * @param resId        resId
      * @param linearLayout
      * @return ImageView
      */
-    public static ImageView imageView(Context mContext, int resId, LinearLayout linearLayout) {
+    public static ImageView imageView(Context context, int resId, LinearLayout linearLayout) {
 
         int dip18 = DensityUtils.dip2px(18);
 
-        WeakReference<Context> contextWeakReference = new WeakReference<>(mContext);
+        WeakReference<Context> contextWeakReference = new WeakReference<>(context);
 
         ImageView imageView = new ImageView(contextWeakReference.get());
         imageView.setImageResource(resId);

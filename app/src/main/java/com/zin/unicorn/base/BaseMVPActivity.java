@@ -1,5 +1,9 @@
 package com.zin.unicorn.base;
 
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+
 import butterknife.ButterKnife;
 
 /**
@@ -9,6 +13,12 @@ public abstract class BaseMVPActivity<V, T extends BasePresenter<V>>
         extends BaseActivity {
 
     protected T mPresenter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+
+    }
 
     @Override
     public void init() {

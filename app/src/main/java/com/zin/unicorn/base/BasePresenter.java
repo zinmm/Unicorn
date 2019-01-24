@@ -24,10 +24,10 @@ public abstract class BasePresenter<V> extends BrainPresenter<V> {
         mViewRef = new WeakReference<>(view);
     }
 
-    protected void attachContext(Context mContext) {
-        this.mContext = mContext;
-        this.mApplicationContext = mContext.getApplicationContext();
-        this.mActivity = (BaseActivity) mContext;
+    protected void attachContext(Context context) {
+        this.mContext = context;
+        this.mApplicationContext = context.getApplicationContext();
+        this.mActivity = (BaseActivity) context;
     }
 
     protected V getView() {

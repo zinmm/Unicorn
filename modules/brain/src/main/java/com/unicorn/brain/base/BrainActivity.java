@@ -91,12 +91,12 @@ public abstract class BrainActivity extends RxAppCompatActivity {
         Snackbar snackbar = Snackbar.make(findViewById(R.id.fl_root), content, Snackbar.LENGTH_SHORT);
 
         Snackbar.SnackbarLayout snackBarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
-        TextView snackbarTextView = snackBarLayout.findViewById(R.id.snackbar_text);
+        TextView snackBarTextView = snackBarLayout.findViewById(R.id.snackbar_text);
 
         if (isError.length != 0 && isError[0]) {
             snackBarLayout.setBackgroundColor(0xfff44336);
         }
-        snackbarTextView.setGravity(Gravity.CENTER_HORIZONTAL);
+        snackBarTextView.setGravity(Gravity.CENTER_HORIZONTAL);
 
         snackbar.show();
     }

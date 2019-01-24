@@ -14,7 +14,7 @@ import android.view.ViewGroup;
  */
 public class BrainFragment extends Fragment {
 
-    protected Context mContext;
+    protected Context context;
     protected Context mApplication;
     protected Activity mActivity;
     protected View mView;
@@ -23,7 +23,7 @@ public class BrainFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        this.mContext = context;
+        this.context = context;
         this.mActivity = (Activity) context;
         this.mApplication = context.getApplicationContext();
     }
@@ -37,7 +37,7 @@ public class BrainFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
 
-        this.mContext = null;
+        this.context = null;
         this.mActivity = null;
         this.mApplication = null;
     }

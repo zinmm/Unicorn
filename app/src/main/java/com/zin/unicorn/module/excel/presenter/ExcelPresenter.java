@@ -3,9 +3,6 @@ package com.zin.unicorn.module.excel.presenter;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -19,15 +16,12 @@ import com.zin.unicorn.pojo.ExcelPoJo;
 import com.zin.unicorn.pojo.ad.AdPoJo;
 import com.zin.unicorn.util.FileMimeUtil;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Calendar;
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -35,8 +29,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static android.content.pm.PackageManager.GET_ACTIVITIES;
 
 /**
  * Created by ZhuJinMing on 2017/7/11.
