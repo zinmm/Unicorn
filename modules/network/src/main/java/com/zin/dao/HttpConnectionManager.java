@@ -3,8 +3,6 @@ package com.zin.dao;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.zin.toolutils.log.LogcatUtil;
-
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -27,7 +25,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import static com.zin.toolutils.MyTextUtils.countStr;
+import static com.zin.MyTextUtils.countStr;
 import static com.zin.dao.HttpConstant.METHOD_GET;
 import static com.zin.dao.HttpConstant.METHOD_POST;
 import static com.zin.dao.HttpConstant.OTHER_ERROR;
@@ -38,6 +36,8 @@ import static com.zin.dao.HttpConstant.OTHER_ERROR;
  * Created by ZhuJinMing on 14/3/20.
  */
 public class HttpConnectionManager {
+
+    private final static String LOG_TAG = "HttpConnectionManager";
 
     private TrustManager[] mTrustAllCerts = null;
     private HostnameVerifier mHostnameVerifier = null;
@@ -131,9 +131,9 @@ public class HttpConnectionManager {
                 }
 
                 if (urlStr.contains("?") && objectMap != null) {
-                    LogcatUtil.getInstance().error(
+                    Log.e(LOG_TAG, 
                             "Network Error: \ncode: 705, tr please have a check url parameter!"
-                            , HttpConnectionManager.class);
+                            );
                 }
             }
 
@@ -268,7 +268,7 @@ public class HttpConnectionManager {
             return false;
         }
         httpResultListener.onSuccess(what, urlStr, responseJson);
-        LogcatUtil.getInstance().json(responseJson);
+        Log.i(LOG_TAG, responseJson);
         return true;
     }
 
@@ -289,12 +289,11 @@ public class HttpConnectionManager {
 
         try {
             if (httpResultListener == null) {
-                LogcatUtil.getInstance().error(errorMessage, HttpConnectionManager.class);
+                Log.e(LOG_TAG, errorMessage);
                 return false;
             }
             httpResultListener.onFailure(what, urlStr, code, errorMessage, throwable);
-            LogcatUtil.getInstance().error("code: " + code + "\nmessage: " + errorMessage,
-                    HttpConnectionManager.class);
+            Log.e(LOG_TAG, "code: " + code + "\nmessage: " + errorMessage);
         } catch (Throwable ignored) {
             return false;
         }

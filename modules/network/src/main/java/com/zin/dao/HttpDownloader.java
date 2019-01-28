@@ -1,7 +1,8 @@
 package com.zin.dao;
 
-import com.zin.toolutils.file.FileUtils;
-import com.zin.toolutils.log.LogcatUtil;
+import android.util.Log;
+
+import com.zin.file.FileUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,6 +18,8 @@ import java.net.URL;
  * Created by ZhuJinMing on 2018/4/12.
  */
 public class HttpDownloader {
+
+    private final static String LOG_TAG = "HttpDownloader";
 
     private StringBuffer strBuffer = new StringBuffer();
     private BufferedReader bufferReader = null;
@@ -45,8 +48,7 @@ public class HttpDownloader {
             }
         } catch (Exception e) {
             strBuffer.append("something is wrong!!");
-            LogcatUtil.getInstance().error("读取数据异常: " + e.getMessage(),
-                    HttpDownloader.class);
+            Log.e(LOG_TAG, "读取数据异常: " + e.getMessage());
         } finally {
             try {
                 bufferReader.close();
@@ -69,8 +71,7 @@ public class HttpDownloader {
                 return -1;
             }
         } catch (Exception e) {
-            LogcatUtil.getInstance().error("读写数据异常: " + e.getMessage(),
-                    HttpDownloader.class);
+            Log.e(LOG_TAG, "读写数据异常: " + e.getMessage());
             return -1;
         }
         return 0;

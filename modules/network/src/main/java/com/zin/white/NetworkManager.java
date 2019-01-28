@@ -3,8 +3,6 @@ package com.zin.white;
 import android.os.Handler;
 import android.text.TextUtils;
 
-import com.zin.Method;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
