@@ -36,6 +36,7 @@ android {
     android {
         useLibrary "org.apache.http.legacy"
     }
+    buildToolsVersion '28.0.3'
 }
 
 repositories {
