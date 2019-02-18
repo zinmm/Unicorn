@@ -5,6 +5,7 @@ properties.load(project.rootProject.file("local.properties").newDataInputStream(
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
 
@@ -36,7 +37,6 @@ android {
     android {
         useLibrary "org.apache.http.legacy"
     }
-    buildToolsVersion '28.0.3'
 }
 
 repositories {

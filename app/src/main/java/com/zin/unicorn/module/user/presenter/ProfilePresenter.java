@@ -62,7 +62,7 @@ public class ProfilePresenter extends BasePresenter<ProfileView> {
                     return;
                 }
 
-                Glide.with(mContext).load(userPoJo.getAvatar()).centerCrop().into(getView().getIvAvatar());
+                Glide.with(mContext).load(userPoJo.getAvatar()).into(getView().getIvAvatar());
                 getView().getTvId().setText(String.valueOf(userPoJo.getId()));
                 getView().getTvGender().setText(userPoJo.getGender());
                 getView().getTvUsername().setText(userPoJo.getUserName());
