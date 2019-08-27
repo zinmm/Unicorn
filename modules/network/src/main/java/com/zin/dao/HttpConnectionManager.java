@@ -1,12 +1,16 @@
 package com.zin.dao;
 
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.zin.file.FileUtils;
 
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -32,7 +36,7 @@ import static com.zin.dao.HttpConstant.OTHER_ERROR;
 
 /**
  * Http connection manager.
- *
+ * <p>
  * Created by ZhuJinMing on 14/3/20.
  */
 public class HttpConnectionManager {
@@ -61,9 +65,16 @@ public class HttpConnectionManager {
                 connectionRequest(what, urlStr, method, objectMap, httpResultListener)).start();
     }
 
+    public void downloadFile(int what, String fileName, String urlStr,
+                             HttpResultListener<String> httpResultListener) {
+        new Thread(() ->
+                download(what, urlStr, fileName, httpResultListener)).start();
+    }
+
     /**
      * 创建连接分发结果
-     *`
+     *
+     *
      * @param what               唯一标示
      * @param urlStr             接口
      * @param method             GET POST
@@ -131,9 +142,9 @@ public class HttpConnectionManager {
                 }
 
                 if (urlStr.contains("?") && objectMap != null) {
-                    Log.e(LOG_TAG, 
+                    Log.e(LOG_TAG,
                             "Network Error: \ncode: 705, tr please have a check url parameter!"
-                            );
+                    );
                 }
             }
 
@@ -200,7 +211,7 @@ public class HttpConnectionManager {
                 // response data
                 String responseJson = resultData.toString();
 
-                if (responseJson != null) {
+                if (!TextUtils.isEmpty(responseJson)) {
                     onSuccess(httpResultListener, what, urlStr, responseJson);
                 }
 
@@ -225,6 +236,42 @@ public class HttpConnectionManager {
                         ignored.getMessage(), ignored);
             }
         }
+    }
+
+    private void download(int what, String urlStr, String fileName, HttpResultListener<String> httpResultListener) {
+        try {
+            URL url = new URL(urlStr);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setReadTimeout(5000);
+            con.setConnectTimeout(5000);
+            con.setRequestProperty("Charset", "UTF-8");
+            con.setRequestMethod("GET");
+            if (con.getResponseCode() == 200) {
+                InputStream is = con.getInputStream();
+                String filePath = Environment.getExternalStorageDirectory().toString() + "/fir";
+                FileOutputStream fileOutputStream = null;
+                if (is != null) {
+
+                    fileOutputStream = new FileOutputStream(
+                            new FileUtils().createFileInSDCard(filePath, fileName));
+
+                    byte[] buf = new byte[1024];
+                    int ch;
+                    while ((ch = is.read(buf)) != -1) {
+                        fileOutputStream.write(buf, 0, ch);//将获取到的流写入文件中
+                    }
+                }
+                if (fileOutputStream != null) {
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                }
+
+                onSuccess(httpResultListener, what, urlStr, filePath);
+            }
+        } catch (Exception e) {
+            failureCallBack(httpResultListener, what, urlStr, OTHER_ERROR, e.getMessage(), e);
+        }
+
     }
 
     /**
@@ -253,12 +300,12 @@ public class HttpConnectionManager {
 
     /**
      * 成功回调
-     * 
+     *
      * @param httpResultListener 回调类
      * @param what               唯一标示
      * @param urlStr             请求地址
      * @param responseJson       返回数据
-     * @return                   是否回调成功
+     * @return 是否回调成功
      */
     private boolean onSuccess(HttpResultListener<String> httpResultListener,
                               int what, String urlStr, String responseJson) {
@@ -281,7 +328,7 @@ public class HttpConnectionManager {
      * @param code               返回 code
      * @param errorMessage       错误信息
      * @param throwable          错误
-     * @return                   是否回调成功
+     * @return 是否回调成功
      */
     private boolean failureCallBack(
             HttpResultListener<String> httpResultListener,
@@ -302,6 +349,7 @@ public class HttpConnectionManager {
 
     /**
      * 设置不验证主机
+     *
      * @return HostnameVerifier
      */
     private HostnameVerifier getHostnameVerifier() {

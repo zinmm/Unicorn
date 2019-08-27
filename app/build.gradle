@@ -16,7 +16,7 @@ android {
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-//        // 开启 jackOptions 以使用 jdk 8
+        // 开启 jackOptions 以使用 jdk 8
 //        jackOptions {
 //            enabled true
 //        }
@@ -64,79 +64,79 @@ ext {
 }
 
 dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation "junit:junit:${junitVersion}"
 
+    // retrofit 网络框架
+    implementation "com.squareup.retrofit2:retrofit:${retrofit2Version}"
     // okHttp 网络框架
     testImplementation "com.squareup.okhttp3:mockwebserver:${okhttpVersion}"
 
     // v7 包
-    api "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
 
     // 注解
-    implementation 'com.android.support:support-annotations:28.0.0@jar'
-    api "com.android.support:support-annotations:28.0.0@jar"
+    implementation "com.android.support:support-annotations:${supportLibVersion}@jar"
 
-    // design 自带
-    api "com.android.support:design:${supportLibVersion}"
+    // Material Design 风格
+    implementation "com.android.support:design:${supportLibVersion}"
+
+    // ConstraintLayout 约束布局
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // rx java
-    api "io.reactivex.rxjava2:rxjava:${rxVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxVersion}"
 
     // rx Android
-    api "io.reactivex.rxjava2:rxandroid:${rxVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rxVersion}"
 
-    // rx adapter
+//    // rx adapter
 //    api "com.squareup.retrofit2:adapter-rxjava:${rxVersion}"
 
-    // retrofit 网络框架
-    api "com.squareup.retrofit2:retrofit:${retrofit2Version}"
-
-    // rx lifecycle
+//    // rx lifecycle
 //    api "com.trello.rxlifecycle2:rxlifecycle:${retrofit2Version}"
 
-    // g son 解析 json
-    api "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
-
     // rx preferences 存文件
-    api "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
+    implementation "com.f2prateek.rx.preferences2:rx-preferences:${rxPreferencesVersion}"
+
+    // g son 解析 json
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit2Version}"
 
     // google 推出的 gson
-    api "com.google.code.gson:gson:${gsonVersion}"
+    implementation "com.google.code.gson:gson:${gsonVersion}"
 
     // event bus callback
-    api "org.greenrobot:eventbus:${eventBusVersion}"
+    implementation "org.greenrobot:eventbus:${eventBusVersion}"
 
     // butter knife
-    api "com.jakewharton:butterknife:${butterknifeVersion}"
+    implementation "com.jakewharton:butterknife:${butterknifeVersion}"
 
     // glide 图片加载框架
-    api 'com.github.bumptech.glide:glide:4.6.0'
-
-    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 
     // 阿里热修复
-    api 'com.aliyun.ams:alicloud-android-hotfix:3.0.5'
-    api('com.aliyun.ams:alicloud-android-hotfix:3.0.5') {
+    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.0.5'
+    implementation('com.aliyun.ams:alicloud-android-hotfix:3.0.5') {
         exclude(module: 'alicloud-android-utdid')
     }
 
-    // 检查栈顶应用的
-//    api project(path: ':runningapplication')
+//    // 检查栈顶应用的
+//    implementation project(path: ':runningapplication')
 
-    // 侧滑菜单
-//    api project(path: ':module:sideslip')
+//    // 侧滑菜单
+//    implementation project(path: ':module:sideslip')
 
     // 工具类
-    api project(path: ':toolutils')
+    implementation project(path: ':toolutils')
 
     // system control
-    api project(path: ':brain')
+    implementation project(path: ':brain')
 
     // 网络模块
-    api project(path: ':network')
+    implementation project(path: ':network')
 
     // butter knife
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+    implementation files('libs/YDSDK.jar')
 }
 
